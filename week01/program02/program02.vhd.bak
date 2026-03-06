@@ -1,0 +1,12 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity program02 is
+port(X,Y:in std_logic;
+A,B:out std_logic_vector(6 downto 0));
+end program02;
+
+architecture display of program02 is
+begin
+A[0]<-X
+end display
