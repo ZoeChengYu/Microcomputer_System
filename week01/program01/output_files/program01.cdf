@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE115F29) Path("C:/Users/ChengYu/Desktop/week01/program01/output_files/") File("program01.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE115F29) Path("C:/Users/ChengYu/Desktop/micro/week01/program01/output_files/") File("program01.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

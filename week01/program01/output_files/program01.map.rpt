@@ -1,5 +1,5 @@
 Analysis & Synthesis report for program01
-Wed Mar  4 09:49:15 2026
+Sat Mar  7 22:33:15 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -43,7 +43,7 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Mar  4 09:49:14 2026           ;
+; Analysis & Synthesis Status        ; Successful - Sat Mar  7 22:33:15 2026           ;
 ; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                      ; program01                                       ;
 ; Top-level Entity Name              ; program01                                       ;
@@ -162,13 +162,13 @@ on the Quartus Prime software download page.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                  ; Library ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------+---------+
-; program01.vhd                    ; yes             ; User VHDL File  ; C:/Users/ChengYu/Desktop/week01/program01.vhd ;         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                  ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
+; program01.vhd                    ; yes             ; User VHDL File  ; C:/Users/ChengYu/Desktop/micro/week01/program01/program01.vhd ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
 
 
 +-------------------------------------------------------+
@@ -248,7 +248,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -258,13 +258,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Wed Mar  4 09:47:55 2026
+    Info: Processing started: Sat Mar  7 22:32:29 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off program01 -c program01
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file program01.vhd
-    Info (12022): Found design unit 1: program01-LED File: C:/Users/ChengYu/Desktop/week01/program01.vhd Line: 9
-    Info (12023): Found entity 1: program01 File: C:/Users/ChengYu/Desktop/week01/program01.vhd Line: 4
+    Info (12022): Found design unit 1: program01-LED File: C:/Users/ChengYu/Desktop/micro/week01/program01/program01.vhd Line: 9
+    Info (12023): Found entity 1: program01 File: C:/Users/ChengYu/Desktop/micro/week01/program01/program01.vhd Line: 4
 Info (12127): Elaborating entity "program01" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
@@ -274,9 +274,9 @@ Info (21057): Implemented 18 device resources after synthesis - the final resour
     Info (21059): Implemented 7 output pins
     Info (21061): Implemented 7 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4882 megabytes
-    Info: Processing ended: Wed Mar  4 09:49:15 2026
-    Info: Elapsed time: 00:01:20
-    Info: Total CPU time (on all processors): 00:00:29
+    Info: Peak virtual memory: 4900 megabytes
+    Info: Processing ended: Sat Mar  7 22:33:15 2026
+    Info: Elapsed time: 00:00:46
+    Info: Total CPU time (on all processors): 00:00:27
 
 

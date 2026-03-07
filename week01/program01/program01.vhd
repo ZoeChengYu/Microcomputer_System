@@ -9,7 +9,7 @@ end program01;
 architecture LED of program01 is
 begin
 a<=(not(W) and not(X) and not(Y) and Z)or(W and not(X) and Y and Z)or(W and not(Y) and X)or(X and not(Y) and not(Z));
-b<=((not(W) or Y or not(Z))and(W or not(Y) or not(Z))and(W or Y or Z)and(X or Z));
+b<=((not(W) or Y or not(Z))and(W or not(Y) or not(Z))and(W or Y or Z)and(X or Z) and (W or X));
 c<=(not(W) and not(X) and Y and not(Z))or(W and X and not(Z))or(W and X and Y);
 d<=(not(X) and not(Y) and Z)or(not(W) and X and not(Y) and not(Z))or(X and Y and Z)or(W and not(X) and Y and not(Z));
 e<=(not(W) and Z)or(not(W) and X and not(Y))or(not(X) and not(Y) and Z);
