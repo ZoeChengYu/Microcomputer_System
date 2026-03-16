@@ -1,0 +1,227 @@
+|project1
+sw_A[0] => FA:stage0.A
+sw_A[1] => FA:stage1.A
+sw_A[2] => FA:stage2.A
+sw_A[3] => FA:stage3.A
+sw_A[4] => FA:stage4.A
+sw_A[5] => FA:stage5.A
+sw_A[6] => FA:stage6.A
+sw_A[7] => FA:stage7.A
+sw_B[0] => FA:stage0.B
+sw_B[1] => FA:stage1.B
+sw_B[2] => FA:stage2.B
+sw_B[3] => FA:stage3.B
+sw_B[4] => FA:stage4.B
+sw_B[5] => FA:stage5.B
+sw_B[6] => FA:stage6.B
+sw_B[7] => FA:stage7.B
+seg_A[0] <= seven_displays:display_unit.a0
+seg_A[1] <= seven_displays:display_unit.a1
+seg_A[2] <= seven_displays:display_unit.a2
+seg_A[3] <= seven_displays:display_unit.a3
+seg_A[4] <= seven_displays:display_unit.a4
+seg_A[5] <= seven_displays:display_unit.a5
+seg_A[6] <= seven_displays:display_unit.a6
+seg_B[0] <= seven_displays:display_unit.b0
+seg_B[1] <= seven_displays:display_unit.b1
+seg_B[2] <= seven_displays:display_unit.b2
+seg_B[3] <= seven_displays:display_unit.b3
+seg_B[4] <= seven_displays:display_unit.b4
+seg_B[5] <= seven_displays:display_unit.b5
+seg_B[6] <= seven_displays:display_unit.b6
+Cout <= FA:stage7.Co
+
+
+|project1|FA:stage0
+A => S.IN0
+A => Co.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+B => Co.IN0
+Ci => S.IN1
+Ci => Co.IN1
+Ci => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|project1|FA:stage1
+A => S.IN0
+A => Co.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+B => Co.IN0
+Ci => S.IN1
+Ci => Co.IN1
+Ci => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|project1|FA:stage2
+A => S.IN0
+A => Co.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+B => Co.IN0
+Ci => S.IN1
+Ci => Co.IN1
+Ci => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|project1|FA:stage3
+A => S.IN0
+A => Co.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+B => Co.IN0
+Ci => S.IN1
+Ci => Co.IN1
+Ci => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|project1|FA:stage4
+A => S.IN0
+A => Co.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+B => Co.IN0
+Ci => S.IN1
+Ci => Co.IN1
+Ci => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|project1|FA:stage5
+A => S.IN0
+A => Co.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+B => Co.IN0
+Ci => S.IN1
+Ci => Co.IN1
+Ci => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|project1|FA:stage6
+A => S.IN0
+A => Co.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+B => Co.IN0
+Ci => S.IN1
+Ci => Co.IN1
+Ci => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|project1|FA:stage7
+A => S.IN0
+A => Co.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+B => Co.IN0
+Ci => S.IN1
+Ci => Co.IN1
+Ci => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|project1|seven_displays:display_unit
+sw0 => a0.IN0
+sw0 => a0.IN0
+sw0 => a0.IN0
+sw0 => a1.IN0
+sw1 => a0.IN1
+sw1 => a1.IN1
+sw1 => a0.IN1
+sw1 => a0.IN1
+sw1 => a6.IN0
+sw2 => a0.IN1
+sw2 => a0.IN1
+sw2 => a1.IN1
+sw2 => a1.IN1
+sw2 => a0.IN1
+sw2 => a0.IN1
+sw2 => a2.IN1
+sw2 => a6.IN1
+sw3 => a0.IN1
+sw3 => a0.IN1
+sw3 => a0.IN1
+sw3 => a1.IN1
+sw3 => a1.IN1
+sw3 => a3.IN1
+sw3 => a4.IN1
+sw3 => a0.IN1
+sw3 => a0.IN1
+sw3 => a1.IN1
+sw3 => a1.IN1
+sw3 => a2.IN1
+sw3 => a3.IN1
+sw3 => a4.IN1
+sw3 => a6.IN1
+sw4 => b0.IN0
+sw4 => b0.IN0
+sw4 => b0.IN0
+sw4 => b1.IN0
+sw5 => b0.IN1
+sw5 => b1.IN1
+sw5 => b0.IN1
+sw5 => b0.IN1
+sw5 => b6.IN0
+sw6 => b0.IN1
+sw6 => b0.IN1
+sw6 => b1.IN1
+sw6 => b1.IN1
+sw6 => b0.IN1
+sw6 => b0.IN1
+sw6 => b2.IN1
+sw6 => b6.IN1
+sw7 => b0.IN1
+sw7 => b0.IN1
+sw7 => b0.IN1
+sw7 => b1.IN1
+sw7 => b1.IN1
+sw7 => b3.IN1
+sw7 => b4.IN1
+sw7 => b0.IN1
+sw7 => b0.IN1
+sw7 => b1.IN1
+sw7 => b1.IN1
+sw7 => b2.IN1
+sw7 => b3.IN1
+sw7 => b4.IN1
+sw7 => b6.IN1
+a0 <= a0.DB_MAX_OUTPUT_PORT_TYPE
+a1 <= a1.DB_MAX_OUTPUT_PORT_TYPE
+a2 <= a2.DB_MAX_OUTPUT_PORT_TYPE
+a3 <= a3.DB_MAX_OUTPUT_PORT_TYPE
+a4 <= a4.DB_MAX_OUTPUT_PORT_TYPE
+a5 <= a5.DB_MAX_OUTPUT_PORT_TYPE
+a6 <= a6.DB_MAX_OUTPUT_PORT_TYPE
+b0 <= b0.DB_MAX_OUTPUT_PORT_TYPE
+b1 <= b1.DB_MAX_OUTPUT_PORT_TYPE
+b2 <= b2.DB_MAX_OUTPUT_PORT_TYPE
+b3 <= b3.DB_MAX_OUTPUT_PORT_TYPE
+b4 <= b4.DB_MAX_OUTPUT_PORT_TYPE
+b5 <= b5.DB_MAX_OUTPUT_PORT_TYPE
+b6 <= b6.DB_MAX_OUTPUT_PORT_TYPE
+
+
