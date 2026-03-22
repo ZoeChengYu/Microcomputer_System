@@ -1,5 +1,5 @@
 Analysis & Synthesis report for subition
-Tue Mar 17 02:08:06 2026
+Sun Mar 22 10:02:35 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -44,7 +44,7 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Mar 17 02:08:06 2026           ;
+; Analysis & Synthesis Status        ; Successful - Sun Mar 22 10:02:35 2026           ;
 ; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                      ; subition                                        ;
 ; Top-level Entity Name              ; subition                                        ;
@@ -285,7 +285,7 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Tue Mar 17 02:07:14 2026
+    Info: Processing started: Sun Mar 22 10:01:49 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off subition -c subition
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
@@ -313,8 +313,8 @@ Info (21057): Implemented 68 device resources after synthesis - the final resour
     Info (21061): Implemented 37 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
     Info: Peak virtual memory: 4899 megabytes
-    Info: Processing ended: Tue Mar 17 02:08:06 2026
-    Info: Elapsed time: 00:00:52
-    Info: Total CPU time (on all processors): 00:00:31
+    Info: Processing ended: Sun Mar 22 10:02:35 2026
+    Info: Elapsed time: 00:00:46
+    Info: Total CPU time (on all processors): 00:00:27
 
 
