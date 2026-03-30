@@ -2,16 +2,16 @@ library ieee;
 use ieee.std_logic_1164.all;
 use work.LAB03_package.all;
 
-entity LAB03 is
+entity LAB_03 is
     port(
         A,B: in std_logic_vector (7 downto 0);
         a0, b0, c0, d0, e0, f0, g0: out std_logic;
         a1, b1, c1, d1, e1, f1, g1: out std_logic;
         overflow: out std_logic
     );
-end entity LAB03;
+end entity LAB_03;
 
-architecture structure of LAB03 is
+architecture structure of LAB_03 is
     signal sum_low: std_logic_vector(3 downto 0);
     signal sum_high: std_logic_vector(3 downto 0);
     signal carry_mid: std_logic;
