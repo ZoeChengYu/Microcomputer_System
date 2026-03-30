@@ -15,22 +15,22 @@ B[4] => BCD4:stage1.B[0]
 B[5] => BCD4:stage1.B[1]
 B[6] => BCD4:stage1.B[2]
 B[7] => BCD4:stage1.B[3]
-Ad[0] <= seven_displays:display_unit.a0
-Ad[1] <= seven_displays:display_unit.a1
-Ad[2] <= seven_displays:display_unit.a2
-Ad[3] <= seven_displays:display_unit.a3
-Ad[4] <= seven_displays:display_unit.a4
-Ad[5] <= seven_displays:display_unit.a5
-Ad[6] <= seven_displays:display_unit.a6
-Bd[0] <= seven_displays:display_unit.b0
-Bd[1] <= seven_displays:display_unit.b1
-Bd[2] <= seven_displays:display_unit.b2
-Bd[3] <= seven_displays:display_unit.b3
-Bd[4] <= seven_displays:display_unit.b4
-Bd[5] <= seven_displays:display_unit.b5
-Bd[6] <= seven_displays:display_unit.b6
-Co[0] <= BCD4:stage1.Co
-Co[1] <= BCD4:stage1.Co
+Ad[0] << seven_displays:display_unit.a0
+Ad[1] << seven_displays:display_unit.a1
+Ad[2] << seven_displays:display_unit.a2
+Ad[3] << seven_displays:display_unit.a3
+Ad[4] << seven_displays:display_unit.a4
+Ad[5] << seven_displays:display_unit.a5
+Ad[6] << seven_displays:display_unit.a6
+Bd[0] << seven_displays:display_unit.b0
+Bd[1] << seven_displays:display_unit.b1
+Bd[2] << seven_displays:display_unit.b2
+Bd[3] << seven_displays:display_unit.b3
+Bd[4] << seven_displays:display_unit.b4
+Bd[5] << seven_displays:display_unit.b5
+Bd[6] << seven_displays:display_unit.b6
+Co[0] << BCD4:stage1.Co
+Co[1] << BCD4:stage1.Co
 
 
 |Lab_03|BCD4:stage0
