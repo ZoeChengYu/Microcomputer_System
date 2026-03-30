@@ -60,7 +60,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "overflow",
+					"name" : "overflow0",
+					"strict" : false
+				},
+				{
+					"name" : "overflow1",
 					"strict" : false
 				},
 				{

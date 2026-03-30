@@ -29,7 +29,8 @@ d1 <= hex:display1.d
 e1 <= hex:display1.e
 f1 <= hex:display1.f
 g1 <= hex:display1.g
-overflow <= BCD4:stage1.Co
+overflow0 <= BCD4:stage1.Co
+overflow1 <= BCD4:stage1.Co
 
 
 |Lab_03|BCD4:stage0

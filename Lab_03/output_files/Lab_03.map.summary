@@ -1,4 +1,4 @@
-Analysis & Synthesis Status : Successful - Mon Mar 30 15:57:08 2026
+Analysis & Synthesis Status : Successful - Mon Mar 30 17:04:41 2026
 Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 Revision Name : Lab_03
 Top-level Entity Name : LAB_03
@@ -7,7 +7,7 @@ Total logic elements : 36
     Total combinational functions : 36
     Dedicated logic registers : 0
 Total registers : 0
-Total pins : 31
+Total pins : 32
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

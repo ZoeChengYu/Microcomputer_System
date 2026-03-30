@@ -57,15 +57,6 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_location_assignment PIN_AA26 -to Co[0]
-set_location_assignment PIN_Y25 -to Co[1]
-set_location_assignment PIN_M24 -to Bd[0]
-set_location_assignment PIN_Y22 -to Bd[1]
-set_location_assignment PIN_W21 -to Bd[2]
-set_location_assignment PIN_W22 -to Bd[3]
-set_location_assignment PIN_W25 -to Bd[4]
-set_location_assignment PIN_U23 -to Bd[5]
-set_location_assignment PIN_U24 -to Bd[6]
 set_location_assignment PIN_AC25 -to B[0]
 set_location_assignment PIN_AB25 -to B[1]
 set_location_assignment PIN_AC24 -to B[2]
@@ -74,13 +65,6 @@ set_location_assignment PIN_AB23 -to B[4]
 set_location_assignment PIN_AA24 -to B[5]
 set_location_assignment PIN_AA23 -to B[6]
 set_location_assignment PIN_AA22 -to B[7]
-set_location_assignment PIN_G18 -to Ad[0]
-set_location_assignment PIN_F22 -to Ad[1]
-set_location_assignment PIN_E17 -to Ad[2]
-set_location_assignment PIN_L26 -to Ad[3]
-set_location_assignment PIN_L25 -to Ad[4]
-set_location_assignment PIN_J22 -to Ad[5]
-set_location_assignment PIN_H22 -to Ad[6]
 set_location_assignment PIN_AB28 -to A[0]
 set_location_assignment PIN_AC28 -to A[1]
 set_location_assignment PIN_AC27 -to A[2]
@@ -97,4 +81,18 @@ set_global_assignment -name VHDL_FILE BCD4.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_G18 -to a0
+set_location_assignment PIN_M24 -to a1
+set_location_assignment PIN_F22 -to b0
+set_location_assignment PIN_E17 -to c0
+set_location_assignment PIN_Y22 -to b1
+set_location_assignment PIN_W21 -to c1
+set_location_assignment PIN_L26 -to d0
+set_location_assignment PIN_L25 -to e0
+set_location_assignment PIN_J22 -to f0
+set_location_assignment PIN_H22 -to g0
+set_location_assignment PIN_W22 -to d1
+set_location_assignment PIN_W25 -to e1
+set_location_assignment PIN_U23 -to f1
+set_location_assignment PIN_U24 -to g1
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
