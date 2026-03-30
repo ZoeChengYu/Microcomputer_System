@@ -14,14 +14,14 @@ architecture main of Lab_03 is
     signal stables:std_logic_vector(7 downto 0);
     signal Sis:std_logic_vector (1 downto 0);
     begin
-        stage0: BCD4 port map (A(3 downto 0),B(3 downto 0),'0',stables(3 downto 0),Sis(0));
-        stage1: BCD4 port map (A(7 downto 4),B(7 downto 4),Sis(0),stables(7 downto 4),Sis(1));
-        Co(1)<=not(Sis(1));
-        Co(0)<=not(Sis(1));
+        stage0: BCD4 port map (A(3),A(2),A(1),A(0),B(3),B(2),B(1),B(0),'0',stables(3),stables(2),stables(1),stables(0),Sis(0));
+        stage1: BCD4 port map (A(7),A(6),A(5),A(4),B(7),B(6),B(5),B(4),Sis(0),stables(7),stables(6),stables(5),stables(4),Sis(1));
+        Co(1)<=Sis(1);
+        Co(0)<=Sis(1);
         display_unit:seven_displays port map(
             sw0=>stables(0),sw1=>stables(1),sw2=>stables(2),sw3=>stables(3),sw4=>stables(4),sw5=>stables(5),sw6=>stables(6),sw7=>stables(7),
             a0=>Ad(0),a1=>Ad(1),a2=>Ad(2),a3=>Ad(3),a4=>Ad(4),a5=>Ad(5),a6=>Ad(6),
-            b0=>Bd(0),b1=>Bd(1),b2=>Bd(2),b3=>Bd(3),b4=>Bd(4),b5=>Bd(5),b6=>Bd(6)
+            b0=>Bd(0),b1=>Bd(1),b2=>Bd(2),b3=>Bd(3),b4=>Bd(4),b5=>Bd(5),b6=>Ad(6)
         );
 
 
