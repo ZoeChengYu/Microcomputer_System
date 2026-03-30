@@ -5,8 +5,8 @@ package BCD_pg is
     component BCD4
         port(
             A,B:in std_logic_vector (3 downto 0);
-            S: out std_logic_vector (3 downto 0);
             Ci:in std_logic;
+            S: out std_logic_vector (3 downto 0);
             Co:out std_logic
         );
     end component BCD4;

@@ -5,8 +5,8 @@ use work.FA_pg.all;
 entity BCD4 is
     port(
         A,B:in std_logic_vector (3 downto 0);
-        S: out std_logic_vector (3 downto 0);
         Ci:in std_logic;
+        S: out std_logic_vector (3 downto 0);
         Co:out std_logic
     );
 end entity;
