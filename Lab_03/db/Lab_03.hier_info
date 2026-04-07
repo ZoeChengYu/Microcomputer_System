@@ -292,14 +292,17 @@ Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Lab_03|hex:display0
+w => f.IN1
 w => a.IN0
 w => a.IN0
 w => f.IN0
 x => a.IN1
 x => e.IN0
+x => f.IN0
 x => a.IN1
 y => b.IN1
 y => c.IN1
+y => f.IN1
 y => f.IN1
 y => a.IN1
 y => a.IN1
@@ -308,6 +311,7 @@ z => a.IN1
 z => b.IN1
 z => d.IN1
 z => e.IN1
+z => f.IN1
 z => f.IN1
 z => f.IN1
 z => a.IN1
@@ -323,14 +327,17 @@ g <= g.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Lab_03|hex:display1
+w => f.IN1
 w => a.IN0
 w => a.IN0
 w => f.IN0
 x => a.IN1
 x => e.IN0
+x => f.IN0
 x => a.IN1
 y => b.IN1
 y => c.IN1
+y => f.IN1
 y => f.IN1
 y => a.IN1
 y => a.IN1
@@ -339,6 +346,7 @@ z => a.IN1
 z => b.IN1
 z => d.IN1
 z => e.IN1
+z => f.IN1
 z => f.IN1
 z => f.IN1
 z => a.IN1

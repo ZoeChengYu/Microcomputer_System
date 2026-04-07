@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition"
 
-// DATE "03/30/2026 17:49:43"
+// DATE "04/07/2026 19:08:45"
 
 // 
 // Device: Altera EP4CE115F29C7 Package FBGA780
@@ -752,7 +752,7 @@ defparam \display0|e .sum_lutc_input = "datac";
 // Location: LCCOMB_X114_Y53_N0
 cycloneive_lcell_comb \display0|f~0 (
 // Equation(s):
-// \display0|f~0_combout  = (!\stage0|stage7|S~combout  & ((\stage0|stage6|S~combout  & (\stage0|stage0|S~0_combout  & \stage0|stage5|S~0_combout )) # (!\stage0|stage6|S~combout  & ((\stage0|stage0|S~0_combout ) # (\stage0|stage5|S~0_combout )))))
+// \display0|f~0_combout  = (!\stage0|stage6|S~combout  & (!\stage0|stage7|S~combout  & ((\stage0|stage0|S~0_combout ) # (\stage0|stage5|S~0_combout ))))
 
 	.dataa(\stage0|stage6|S~combout ),
 	.datab(\stage0|stage0|S~0_combout ),
@@ -762,7 +762,7 @@ cycloneive_lcell_comb \display0|f~0 (
 	.combout(\display0|f~0_combout ),
 	.cout());
 // synopsys translate_off
-defparam \display0|f~0 .lut_mask = 16'h00D4;
+defparam \display0|f~0 .lut_mask = 16'h0054;
 defparam \display0|f~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
@@ -1140,7 +1140,7 @@ defparam \display1|e .sum_lutc_input = "datac";
 // Location: LCCOMB_X114_Y18_N26
 cycloneive_lcell_comb \display1|f~0 (
 // Equation(s):
-// \display1|f~0_combout  = (!\stage1|stage7|S~combout  & ((\stage1|stage5|S~2_combout  & ((\stage1|stage0|S~combout ) # (!\stage1|stage6|S~0_combout ))) # (!\stage1|stage5|S~2_combout  & (!\stage1|stage6|S~0_combout  & \stage1|stage0|S~combout ))))
+// \display1|f~0_combout  = (!\stage1|stage6|S~0_combout  & (!\stage1|stage7|S~combout  & ((\stage1|stage5|S~2_combout ) # (\stage1|stage0|S~combout ))))
 
 	.dataa(\stage1|stage5|S~2_combout ),
 	.datab(\stage1|stage6|S~0_combout ),
@@ -1150,7 +1150,7 @@ cycloneive_lcell_comb \display1|f~0 (
 	.combout(\display1|f~0_combout ),
 	.cout());
 // synopsys translate_off
-defparam \display1|f~0 .lut_mask = 16'h00B2;
+defparam \display1|f~0 .lut_mask = 16'h0032;
 defparam \display1|f~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
