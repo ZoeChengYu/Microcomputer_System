@@ -1,0 +1,180 @@
+|alu7bit
+A[0] => onebitALU:G_ALU:0:G_BIT0:ALU0.A
+A[1] => onebitALU:G_ALU:1:G_BIT_REST:ALU_REST.A
+A[2] => onebitALU:G_ALU:2:G_BIT_REST:ALU_REST.A
+A[3] => onebitALU:G_ALU:3:G_BIT_REST:ALU_REST.A
+A[4] => onebitALU:G_ALU:4:G_BIT_REST:ALU_REST.A
+A[5] => onebitALU:G_ALU:5:G_BIT_REST:ALU_REST.A
+A[6] => onebitALU:G_ALU:6:G_BIT_REST:ALU_REST.A
+B[0] => onebitALU:G_ALU:0:G_BIT0:ALU0.B
+B[1] => onebitALU:G_ALU:1:G_BIT_REST:ALU_REST.B
+B[2] => onebitALU:G_ALU:2:G_BIT_REST:ALU_REST.B
+B[3] => onebitALU:G_ALU:3:G_BIT_REST:ALU_REST.B
+B[4] => onebitALU:G_ALU:4:G_BIT_REST:ALU_REST.B
+B[5] => onebitALU:G_ALU:5:G_BIT_REST:ALU_REST.B
+B[6] => onebitALU:G_ALU:6:G_BIT_REST:ALU_REST.B
+opcode[0] => onebitALU:G_ALU:0:G_BIT0:ALU0.opcode[0]
+opcode[0] => onebitALU:G_ALU:1:G_BIT_REST:ALU_REST.opcode[0]
+opcode[0] => onebitALU:G_ALU:2:G_BIT_REST:ALU_REST.opcode[0]
+opcode[0] => onebitALU:G_ALU:3:G_BIT_REST:ALU_REST.opcode[0]
+opcode[0] => onebitALU:G_ALU:4:G_BIT_REST:ALU_REST.opcode[0]
+opcode[0] => onebitALU:G_ALU:5:G_BIT_REST:ALU_REST.opcode[0]
+opcode[0] => onebitALU:G_ALU:6:G_BIT_REST:ALU_REST.opcode[0]
+opcode[1] => onebitALU:G_ALU:0:G_BIT0:ALU0.opcode[1]
+opcode[1] => onebitALU:G_ALU:1:G_BIT_REST:ALU_REST.opcode[1]
+opcode[1] => onebitALU:G_ALU:2:G_BIT_REST:ALU_REST.opcode[1]
+opcode[1] => onebitALU:G_ALU:3:G_BIT_REST:ALU_REST.opcode[1]
+opcode[1] => onebitALU:G_ALU:4:G_BIT_REST:ALU_REST.opcode[1]
+opcode[1] => onebitALU:G_ALU:5:G_BIT_REST:ALU_REST.opcode[1]
+opcode[1] => onebitALU:G_ALU:6:G_BIT_REST:ALU_REST.opcode[1]
+opcode[2] => onebitALU:G_ALU:0:G_BIT0:ALU0.opcode[2]
+opcode[2] => onebitALU:G_ALU:0:G_BIT0:ALU0.carryin
+opcode[2] => onebitALU:G_ALU:1:G_BIT_REST:ALU_REST.opcode[2]
+opcode[2] => onebitALU:G_ALU:2:G_BIT_REST:ALU_REST.opcode[2]
+opcode[2] => onebitALU:G_ALU:3:G_BIT_REST:ALU_REST.opcode[2]
+opcode[2] => onebitALU:G_ALU:4:G_BIT_REST:ALU_REST.opcode[2]
+opcode[2] => onebitALU:G_ALU:5:G_BIT_REST:ALU_REST.opcode[2]
+opcode[2] => onebitALU:G_ALU:6:G_BIT_REST:ALU_REST.opcode[2]
+opcode[3] => onebitALU:G_ALU:0:G_BIT0:ALU0.opcode[3]
+opcode[3] => onebitALU:G_ALU:1:G_BIT_REST:ALU_REST.opcode[3]
+opcode[3] => onebitALU:G_ALU:2:G_BIT_REST:ALU_REST.opcode[3]
+opcode[3] => onebitALU:G_ALU:3:G_BIT_REST:ALU_REST.opcode[3]
+opcode[3] => onebitALU:G_ALU:4:G_BIT_REST:ALU_REST.opcode[3]
+opcode[3] => onebitALU:G_ALU:5:G_BIT_REST:ALU_REST.opcode[3]
+opcode[3] => onebitALU:G_ALU:6:G_BIT_REST:ALU_REST.opcode[3]
+result[0] << onebitALU:G_ALU:0:G_BIT0:ALU0.result
+result[1] << onebitALU:G_ALU:1:G_BIT_REST:ALU_REST.result
+result[2] << onebitALU:G_ALU:2:G_BIT_REST:ALU_REST.result
+result[3] << onebitALU:G_ALU:3:G_BIT_REST:ALU_REST.result
+result[4] << onebitALU:G_ALU:4:G_BIT_REST:ALU_REST.result
+result[5] << onebitALU:G_ALU:5:G_BIT_REST:ALU_REST.result
+result[6] << onebitALU:G_ALU:6:G_BIT_REST:ALU_REST.result
+overflow << overflow.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu7bit|onebitALU:\G_ALU:0:G_BIT0:ALU0
+A => a_val.DATAA
+A => a_val.DATAB
+B => b_val.DATAA
+B => b_val.DATAB
+less => Mux0.IN0
+carryin => add_res.IN1
+carryin => carryout.IN1
+carryin => carryout.IN1
+opcode[0] => Mux0.IN2
+opcode[1] => Mux0.IN1
+opcode[2] => b_val.OUTPUTSELECT
+opcode[3] => a_val.OUTPUTSELECT
+result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+set <= add_res.DB_MAX_OUTPUT_PORT_TYPE
+carryout <= carryout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu7bit|onebitALU:\G_ALU:1:G_BIT_REST:ALU_REST
+A => a_val.DATAA
+A => a_val.DATAB
+B => b_val.DATAA
+B => b_val.DATAB
+less => Mux0.IN0
+carryin => add_res.IN1
+carryin => carryout.IN1
+carryin => carryout.IN1
+opcode[0] => Mux0.IN2
+opcode[1] => Mux0.IN1
+opcode[2] => b_val.OUTPUTSELECT
+opcode[3] => a_val.OUTPUTSELECT
+result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+set <= add_res.DB_MAX_OUTPUT_PORT_TYPE
+carryout <= carryout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu7bit|onebitALU:\G_ALU:2:G_BIT_REST:ALU_REST
+A => a_val.DATAA
+A => a_val.DATAB
+B => b_val.DATAA
+B => b_val.DATAB
+less => Mux0.IN0
+carryin => add_res.IN1
+carryin => carryout.IN1
+carryin => carryout.IN1
+opcode[0] => Mux0.IN2
+opcode[1] => Mux0.IN1
+opcode[2] => b_val.OUTPUTSELECT
+opcode[3] => a_val.OUTPUTSELECT
+result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+set <= add_res.DB_MAX_OUTPUT_PORT_TYPE
+carryout <= carryout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu7bit|onebitALU:\G_ALU:3:G_BIT_REST:ALU_REST
+A => a_val.DATAA
+A => a_val.DATAB
+B => b_val.DATAA
+B => b_val.DATAB
+less => Mux0.IN0
+carryin => add_res.IN1
+carryin => carryout.IN1
+carryin => carryout.IN1
+opcode[0] => Mux0.IN2
+opcode[1] => Mux0.IN1
+opcode[2] => b_val.OUTPUTSELECT
+opcode[3] => a_val.OUTPUTSELECT
+result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+set <= add_res.DB_MAX_OUTPUT_PORT_TYPE
+carryout <= carryout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu7bit|onebitALU:\G_ALU:4:G_BIT_REST:ALU_REST
+A => a_val.DATAA
+A => a_val.DATAB
+B => b_val.DATAA
+B => b_val.DATAB
+less => Mux0.IN0
+carryin => add_res.IN1
+carryin => carryout.IN1
+carryin => carryout.IN1
+opcode[0] => Mux0.IN2
+opcode[1] => Mux0.IN1
+opcode[2] => b_val.OUTPUTSELECT
+opcode[3] => a_val.OUTPUTSELECT
+result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+set <= add_res.DB_MAX_OUTPUT_PORT_TYPE
+carryout <= carryout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu7bit|onebitALU:\G_ALU:5:G_BIT_REST:ALU_REST
+A => a_val.DATAA
+A => a_val.DATAB
+B => b_val.DATAA
+B => b_val.DATAB
+less => Mux0.IN0
+carryin => add_res.IN1
+carryin => carryout.IN1
+carryin => carryout.IN1
+opcode[0] => Mux0.IN2
+opcode[1] => Mux0.IN1
+opcode[2] => b_val.OUTPUTSELECT
+opcode[3] => a_val.OUTPUTSELECT
+result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+set <= add_res.DB_MAX_OUTPUT_PORT_TYPE
+carryout <= carryout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu7bit|onebitALU:\G_ALU:6:G_BIT_REST:ALU_REST
+A => a_val.DATAA
+A => a_val.DATAB
+B => b_val.DATAA
+B => b_val.DATAB
+less => Mux0.IN0
+carryin => add_res.IN1
+carryin => carryout.IN1
+carryin => carryout.IN1
+opcode[0] => Mux0.IN2
+opcode[1] => Mux0.IN1
+opcode[2] => b_val.OUTPUTSELECT
+opcode[3] => a_val.OUTPUTSELECT
+result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+set <= add_res.DB_MAX_OUTPUT_PORT_TYPE
+carryout <= carryout.DB_MAX_OUTPUT_PORT_TYPE
+
+
