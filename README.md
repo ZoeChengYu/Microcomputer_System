@@ -3,7 +3,7 @@
 | [Datasheet](DE2_115_User_manual.pdf)| [0](./課程資料/2026_微算機系統_Lecture_00_QuartusII軟體安裝與使用.pdf)| [1](./課程資料/2026_微算機系統_Lecture_01_數位邏輯設計概念v1.pdf)| [2](./課程資料/2026_微算機系統_Lecture_02_數值表示法與數學電路.pdf)| [3](./課程資料/2026_微算機系統_Lecture_03_多工器與組合電路.pdf)| 
 | :---: | :---: | :---: | :---: | :---: |
 ## 作業
-HomeWork 編號 | 小組作業 | 繳交期限 | 補交期限 | 簡報連結 | 專案下載連結 |
+HomeWork<br>編號 | 小組作業 | 繳交期限 | 補交期限 | 簡報連結 | 專案下載<br>連結 |
 :-----: | :------------:| :----------:  | :----------: | :-----------: | :---: |
 1 | &#x2705; 2026/03/07 22:53 2nd edit	 | 2026/03/09 23:59 | 2026/03/23 23:59 | [Lab1](./Lab_01/PPT/2026_微算機實驗_lab1_七段顯示器.pdf) | [Lab_01](https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_01)
 2 | &#x2705; 專案完成 <br> &#x2705; 個人+小組報告 <br> &#9888;&#65039; 壓縮檔檔名寫錯 <br> &#x274c; Lab02_第<font color=#FA2255>30</font>組 <br> &#x2705; Lab02_第<font color=#56FAAF>19</font>組 | 2026/03/22 23:59 <br>(表定 <font color=#FA2255>2026/03/20 23:59</font>) | 2026/04/03 23:59 | [Lab2](./Lab_02/PPT/2026_微算機實驗_lab2_多位元加法器與減法器.pdf) | [Lab_02](https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_02)
