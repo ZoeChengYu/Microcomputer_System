@@ -8,3 +8,4 @@
 *.qws
 .vscode
 Lab_05/pro*/db
+*\db
