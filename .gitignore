@@ -10,9 +10,10 @@
 Lab_05/pro*/db
 *\db
 */db
-*/photo
-*\photo
+*\photo*
+Lab_05/photo
 TeamReview.md
 *.tex
 *.zip
 */報告
+Lab_05/Lab_05_Report.md
