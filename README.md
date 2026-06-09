@@ -12,7 +12,8 @@ LAB<br>編號 | 小組作業 | 繳交期限 | 補交期限 | 簡報連結 | 專�
 5 | &#x2705; | 2026/05/13 23:59 | 2026/05/27 00:00 | [Lab5](./Lab_05/PPT/2026_微算機實驗_lab5_移位萬用暫存器.pdf) | [Lab_05](https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_05)
 6 | &#x26A0;&#xFE0F;<font color=#F3C200>遲交作業</font><br><font color=#F39250>2026/05/21 Email補交</font> | 2026/05/20 23:59 | 2026/05/27 23:59 | [Lab6](./Lab_06/PPT/2026_微算機實驗_lab6_移位除法器之狀態機.pdf) | [Lab_06](https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_06)
 7 | &#x2705; | 2026/05/29 23:59 | 2026/06/12 23:59 | [Lab7](./Lab_07/PPT/2026_微算機實驗_lab7_八位元除法器.pdf) | [Lab_07](https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_07)
-8 | &#x274c;
+8 | &#x274c; | 2026/06/19 23:59 | 2026/06/26 23:59 | [Lab8](./Lab_08/PPT/2026_微算機實驗_lab8_簡易CPU實作-讀取.pdf) | [Lab_08](https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_08)
+9 | &#x274c; | 2026/06/19 23:59 | 2026/06/26 23:59 | [Lab9](./Lab_09/PPT/2026_微算機實驗_lab9_簡易CPU實作-2.pdf) | [Lab_09](https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_09)
 
 [Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters)
 [downgit](https://downgit.github.io/)
