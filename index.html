@@ -1044,7 +1044,7 @@
                 <span class="result-val" id="res-target-hours">9 hr</span>
               </div>
               <div class="result-row">
-                <span class="result-label">個人工時比(上限：100%) :</span>
+                <span class="result-label">個人工時比 :</span>
                 <span class="result-val" id="res-work-ratio">88.89%</span>
               </div>
               <div class="result-row">
@@ -1434,10 +1434,10 @@
       const targetHours = Math.max(0, attHours - offsetHours);
       document.getElementById('res-target-hours').textContent = `${targetHours.toFixed(1)} hr`;
 
-      // 3. Work Ratio (個人工時比，上限 100%)
+      // 3. Work Ratio (個人工時比)
       let workRatio = 0;
       if (targetHours > 0) {
-        workRatio = Math.min(100, (workHours / targetHours) * 100);
+        workRatio = (workHours / targetHours) * 100;
       }
       document.getElementById('res-work-ratio').textContent = `${workRatio.toFixed(2)}%`;
 
@@ -1658,7 +1658,7 @@
             if (line.match(/^\|[\s:\-\|]+$/)) {
               continue; // skip separator row
             }
-            const cells = line.split('|').map(c => c.trim()).filter((c, idx, arr) => idx > 0 && idx < arr.length - 1);
+            const cells = line.split('|').map(c => c.trim()).filter(c => c !== '');
             // Check if it is a header row
             const isHeader = cells.some(cell => cell === '日期' || cell === 'LAB' || cell === '項目' || cell === 'LAB<br>編號');
             // But skip the special case "課程簡報" table header which is actually the first cells row containing files!
