@@ -14,7 +14,7 @@ LAB<br>編號 | 小組作業 | 繳交期限 | 補交期限 | 簡報連結 | 專�
 7 | &#x2705; | 2026/05/29 23:59 | 2026/06/12 23:59 | [Lab7](./Lab_07/PPT/2026_微算機實驗_lab7_八位元除法器.pdf) | [Lab_07](https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_07)
 8 | &#x274c; | 2026/06/19 23:59 | 2026/06/26 23:59 | [Lab8](./Lab_08/PPT/2026_微算機實驗_lab8_簡易CPU實作-讀取.pdf) | [Lab_08](https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_08)
 9 | &#x274c; | 2026/06/19 23:59 | 2026/06/26 23:59 | [Lab9](./Lab_09/PPT/2026_微算機實驗_lab9_簡易CPU實作-2.pdf) |  [Lab_09](https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_09)
-finial project| &#x274c; | 2026/06/26 23:59 | 不允許補交 | [Finial](./finial%20project/PPT/2026_微算機實驗_FinalProject_pipline.pdf) | [Finial_Project](https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Finial_Project)
+finial project| &#x274c; | 2026/06/26 23:59 | 不允許補交 | [Finial](./Finial_Project/PPT/2026_微算機實驗_FinalProject_pipline.pdf) | [Finial_Project](https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Finial_Project)
 
 [Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters)
 [downgit](https://downgit.github.io/)
