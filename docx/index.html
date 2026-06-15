@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>微算機系統課程平台 & 期末專案簽到表</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-primary: #0b0f19;
+      --bg-secondary: #111827;
+      --bg-card: rgba(22, 28, 45, 0.6);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+      --text-muted: #6b7280;
+      
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --primary-glow: rgba(99, 102, 241, 0.15);
+      --secondary: #a855f7;
+      --accent: #06b6d4;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+    }
+    
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.8);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      
+      --primary-glow: rgba(99, 102, 241, 0.1);
+      --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: var(--transition);
+      overflow-x: hidden;
+    }
+    
+    /* Layout Container */
+    .app-container {
+      display: flex;
+      min-height: 100vh;
+    }
+    
+    /* Navigation Sidebar */
+    .sidebar {
+      width: 280px;
+      background-color: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      height: 100vh;
+      z-index: 100;
+      transition: var(--transition);
+    }
+    
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+      padding: 0.5rem;
+    }
+    
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.25rem;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    }
+    
+    .logo-text h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .logo-text p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .nav-item a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.85rem 1rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .nav-item a:hover, .nav-item.active a {
+      color: var(--text-primary);
+      background-color: var(--primary-glow);
+    }
+    
+    .nav-item.active a {
+      border-left: 3px solid var(--primary);
+    }
+    
+    .nav-item svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+    
+    .theme-toggle-wrapper {
+      margin-top: auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .theme-label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .theme-switch {
+      position: relative;
+      display: inline-block;
+      width: 46px;
+      height: 24px;
+    }
+    
+    .theme-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #374151;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    
+    input:checked + .slider {
+      background-color: var(--primary);
+    }
+    
+    input:checked + .slider:before {
+      transform: translateX(22px);
+    }
+    
+    /* Main Content Area */
+    .main-content {
+      margin-left: 280px;
+      padding: 2.5rem;
+      width: calc(100% - 280px);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+    
+    /* Header bar */
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .page-title h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+    
+    .page-title p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    
+    /* Glassmorphism Card Style */
+    .dashboard-card {
+      background-color: var(--bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .dashboard-card:hover {
+      box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.2);
+      border-color: rgba(99, 102, 241, 0.2);
+    }
+    
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .card-title svg {
+      width: 22px;
+      height: 22px;
+      color: var(--primary);
+    }
+    
+    /* Slide Grid Layout */
+    .slides-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .slide-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: var(--transition);
+    }
+    
+    .slide-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--primary);
+    }
+    
+    .slide-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: var(--primary-glow);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+    
+    .slide-info h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    
+    .slide-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    
+    .slide-action {
+      margin-top: auto;
+      display: flex;
+      justify-content: flex-end;
+    }
+    
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .btn-download:hover {
+      background: var(--primary-hover);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    }
+    
+    /* Interactive Formulas & Calculator */
+    .formula-section {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+    }
+    
+    @media (max-width: 1024px) {
+      .formula-section {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .formula-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .formula-card {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 4px solid var(--primary);
+      padding: 1.25rem;
+      border-radius: 0 12px 12px 0;
+    }
+    
+    .formula-card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .formula-expr {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    /* Calculator UI */
+    .calculator-card {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(168, 85, 247, 0.05));
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+    
+    .calc-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .calc-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    
+    .calc-group label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    
+    .calc-input {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.6rem 0.8rem;
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    
+    .calc-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+    }
+    
+    .calc-checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 1.2rem 0;
+      padding: 0.75rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 8px;
+    }
+    
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+    
+    .calc-results {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .result-label {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    
+    .result-val {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    
+    .result-val.total {
+      font-size: 1.5rem;
+      color: var(--success);
+      background: linear-gradient(to right, var(--success), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    /* Styled Markdown Blockquotes */
+    .note-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .note-box {
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 4px solid var(--accent);
+      border-radius: 4px 12px 12px 4px;
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    
+    .note-box.warning {
+      border-left-color: var(--warning);
+    }
+    
+    /* Table Styles */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      margin-top: 1.5rem;
+    }
+    
+    .styled-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+    
+    .styled-table th, .styled-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .styled-table th {
+      background-color: rgba(255, 255, 255, 0.03);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    .styled-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .styled-table tbody tr:hover {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+    
+    /* Attendance Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    .badge-present {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--success);
+    }
+    
+    .badge-absent {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--danger);
+    }
+    
+    .badge-pass {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--warning);
+    }
+    
+    .badge-time {
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--accent);
+    }
+    
+    .badge-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 0.75rem;
+      color: var(--text-primary);
+    }
+    
+    /* Lab Status badges */
+    .status-completed {
+      color: var(--success);
+      font-weight: 600;
+    }
+    
+    .status-late {
+      color: var(--warning);
+      font-weight: 600;
+    }
+    
+    .status-missing {
+      color: var(--danger);
+      font-weight: 600;
+    }
+    
+    /* Quick Actions */
+    .btn-icon-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .btn-icon-link:hover {
+      color: var(--secondary);
+      text-decoration: underline;
+    }
+    
+    .btn-icon-link svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-color);
+      margin-top: auto;
+    }
+    
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+        border-right: none;
+      }
+      
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="logo-area">
+        <div class="logo-icon">μP</div>
+        <div class="logo-text">
+          <h1>微算機系統</h1>
+          <p>Microcomputer System</p>
+        </div>
+      </div>
+      
+      <ul class="nav-links">
+        <li class="nav-item active">
+          <a href="#lectures">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 3.5A2.5 2.5 0 0 1 6.5 1H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5V3.5z"></path></svg>
+            課程簡報
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#signin">
+            <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM12 6v6l4 2"></path></svg>
+            期末專案簽到
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#calculator">
+            <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="9"></line><line x1="9" y1="13" x2="15" y2="13"></line><line x1="9" y1="17" x2="15" y2="17"></line></svg>
+            貢獻度試算
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#assignments">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            課程作業
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#penalties">
+            <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            扣貢獻度內容
+          </a>
+        </li>
+      </ul>
+      
+      <div class="theme-toggle-wrapper">
+        <span class="theme-label">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          亮色模式
+        </span>
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-checkbox">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      
+      <!-- Top header bar -->
+      <header class="header-bar">
+        <div class="page-title">
+          <h2>Microcomputer System</h2>
+          <p>小組專案管理與課程資料庫</p>
+        </div>
+      </header>
+
+      <!-- Sync Banner -->
+      <div id="sync-banner" style="display: none; padding: 0.75rem 1.25rem; font-size: 0.85rem; font-weight: 500; display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-radius: 8px; margin-top: 1rem; border: 1px solid transparent; transition: var(--transition);">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span id="sync-status-icon"></span>
+          <span id="sync-status-text">正在嘗試讀取 README.md...</span>
+        </div>
+        <span id="sync-time" style="opacity: 0.7; font-size: 0.75rem;"></span>
+      </div>
+      
+      <!-- Section: Lectures -->
+      <section id="lectures" class="dashboard-card">
+        <div class="card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 3.5A2.5 2.5 0 0 1 6.5 1H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5V3.5z"></path></svg>
+          課程簡報
+        </div>
+        <div class="slides-grid" id="lectures-container">
+          
+          <div class="slide-card">
+            <div class="slide-num">HW</div>
+            <div class="slide-info">
+              <h4>DE2_115 User Manual</h4>
+              <p>硬體實驗板使用手冊說明書</p>
+            </div>
+            <div class="slide-action">
+              <a href="../DE2_115_User_manual.pdf" class="btn-download" target="_blank">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                下載
+              </a>
+            </div>
+          </div>
+          
+          <div class="slide-card">
+            <div class="slide-num">00</div>
+            <div class="slide-info">
+              <h4>QuartusII軟體安裝與使用</h4>
+              <p>軟體環境建置與基本流程說明</p>
+            </div>
+            <div class="slide-action">
+              <a href="../課程資料/2026_微算機系統_Lecture_00_QuartusII軟體安裝與使用.pdf" class="btn-download" target="_blank">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                下載
+              </a>
+            </div>
+          </div>
+          
+          <div class="slide-card">
+            <div class="slide-num">01</div>
+            <div class="slide-info">
+              <h4>數位邏輯設計概念 v1</h4>
+              <p>基本邏輯閘與邏輯設計基礎</p>
+            </div>
+            <div class="slide-action">
+              <a href="../課程資料/2026_微算機系統_Lecture_01_數位邏輯設計概念v1.pdf" class="btn-download" target="_blank">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                下載
+              </a>
+            </div>
+          </div>
+          
+          <div class="slide-card">
+            <div class="slide-num">02</div>
+            <div class="slide-info">
+              <h4>數值表示法與數學電路</h4>
+              <p>二進位系統與加法器設計</p>
+            </div>
+            <div class="slide-action">
+              <a href="../課程資料/2026_微算機系統_Lecture_02_數值表示法與數學電路.pdf" class="btn-download" target="_blank">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                下載
+              </a>
+            </div>
+          </div>
+          
+          <div class="slide-card">
+            <div class="slide-num">03</div>
+            <div class="slide-info">
+              <h4>多工器與組合電路</h4>
+              <p>Multiplexers 與基本組合邏輯</p>
+            </div>
+            <div class="slide-action">
+              <a href="../課程資料/2026_微算機系統_Lecture_03_多工器與組合電路.pdf" class="btn-download" target="_blank">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                下載
+              </a>
+            </div>
+          </div>
+          
+          <div class="slide-card">
+            <div class="slide-num">04</div>
+            <div class="slide-info">
+              <h4>循序電路設計</h4>
+              <p>Latch, Flip-Flop 與計數器設計</p>
+            </div>
+            <div class="slide-action">
+              <a href="../課程資料/2026_微算機系統_Lecture_04_循序電路設計.pdf" class="btn-download" target="_blank">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                下載
+              </a>
+            </div>
+          </div>
+          
+          <div class="slide-card">
+            <div class="slide-num">05</div>
+            <div class="slide-info">
+              <h4>同步順序電路</h4>
+              <p>FSM 狀態機與同步邏輯設計</p>
+            </div>
+            <div class="slide-action">
+              <a href="../課程資料/2026_微算機系統_Lecture_05_同步順序電路.pdf" class="btn-download" target="_blank">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                下載
+              </a>
+            </div>
+          </div>
+          
+          <div class="slide-card">
+            <div class="slide-num">06</div>
+            <div class="slide-info">
+              <h4>基本處理器設計</h4>
+              <p>CPU 單週期架構與指令集</p>
+            </div>
+            <div class="slide-action">
+              <a href="../課程資料/2026_微算機系統_Lecture_06_基本處理器設計.pdf" class="btn-download" target="_blank">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                下載
+              </a>
+            </div>
+          </div>
+          
+          <div class="slide-card">
+            <div class="slide-num">07</div>
+            <div class="slide-info">
+              <h4>Pipeline</h4>
+              <p>管線化處理器設計與 Hazard 處理</p>
+            </div>
+            <div class="slide-action">
+              <a href="../課程資料/2026_微算機系統_Lecture_07_Pipeline.pdf" class="btn-download" target="_blank">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                下載
+              </a>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+      
+      <!-- Section: Sign-in table -->
+      <section id="signin" class="dashboard-card">
+        <div class="card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM12 6v6l4 2"></path></svg>
+          期末專案簽到表
+        </div>
+        
+        <div class="table-container">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th style="width: 25%">日期</th>
+                <th style="width: 25%">楊承諭</th>
+                <th style="width: 25%">黃楷程</th>
+                <th style="width: 25%">備註</th>
+              </tr>
+            </thead>
+            <tbody id="signin-tbody">
+              <tr>
+                <td><strong>2026/06/15</strong></td>
+                <td>
+                  <span class="badge badge-present">✅ 出席</span>
+                  <span class="badge-circle">❶</span>
+                </td>
+                <td>
+                  <span class="badge badge-pass">❌ 抵免 (pass)</span>
+                  <span class="badge-circle">⓿</span>
+                </td>
+                <td>
+                  楊承諭 2 小時<br>
+                  黃楷程 0 小時
+                </td>
+              </tr>
+              <tr>
+                <td><strong>2026/06/17</strong></td>
+                <td>
+                  <span class="badge-circle">③</span>
+                </td>
+                <td>
+                  <span class="badge-circle">①</span>
+                </td>
+                <td>
+                  楊承諭 0 小時<br>
+                  黃楷程 0 小時
+                </td>
+              </tr>
+              <tr>
+                <td><strong>2026/06/22</strong></td>
+                <td>
+                  <span class="badge-circle">⑤</span>
+                </td>
+                <td>
+                  <span class="badge-circle">③</span>
+                </td>
+                <td>
+                  楊承諭 0 小時<br>
+                  黃楷程 0 小時
+                </td>
+              </tr>
+              <tr>
+                <td><strong>2026/06/24</strong></td>
+                <td>
+                  <span class="badge-circle">⑥</span>
+                </td>
+                <td>
+                  <span class="badge-circle">④</span>
+                </td>
+                <td>
+                  楊承諭 0 小時<br>
+                  黃楷程 0 小時
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="note-container" id="signin-notes">
+          <div class="note-box">
+            <strong>實作組專案貢獻度：</strong> 依實際出席期間的工作時數計算，一小時為一權重比。
+          </div>
+          <div class="note-box">
+            <strong>報告組專案貢獻度：</strong> 評估較為寬鬆，非逐字精準計算，使組員成績分佈相對平均。
+          </div>
+          <div class="note-box warning">
+            <strong>加班與缺席規則：</strong> 自行加班不計入工時。每人允許有一次上課缺席（一天計一次，不論該日授課時數），該缺席時數視為抵免工時。
+          </div>
+        </div>
+      </section>
+      
+      <!-- Section: Calculator & Formulas -->
+      <section id="calculator" class="dashboard-card">
+        <div class="card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="9"></line><line x1="9" y1="13" x2="15" y2="13"></line><line x1="9" y1="17" x2="15" y2="17"></line></svg>
+          貢獻度公式與試算工具
+        </div>
+        
+        <div class="formula-section">
+          <!-- Formulas list -->
+          <div class="formula-list">
+            <div class="formula-card">
+              <h4>個人可計工時</h4>
+              <div class="formula-expr">個人可計工時 = 個人應出席總工時 − 抵免工時</div>
+            </div>
+            <div class="formula-card">
+              <h4>個人工時比</h4>
+              <div class="formula-expr">個人工時比 = (個人實作工時 / 個人可計工時) × 100%</div>
+            </div>
+            <div class="formula-card">
+              <h4>實作組貢獻度</h4>
+              <div class="formula-expr">實作組專案貢獻度 = (個人工時比 / 全組工時比之和) × 85%</div>
+            </div>
+            <div class="formula-card">
+              <h4>報告組貢獻度</h4>
+              <div class="formula-expr">報告組專案貢獻度 = (報告貢獻字數 / 報告總字數) × 15%</div>
+            </div>
+          </div>
+          
+          <!-- Interactive Calculator -->
+          <div class="calculator-card">
+            <h3 style="margin-bottom: 1.25rem; font-size: 1.1rem; font-weight: 600;">貢獻度試算模擬器</h3>
+            
+            <div class="calc-row">
+              <div class="calc-group">
+                <label for="input-att-hours">應出席總工時 (hr)</label>
+                <input type="number" id="input-att-hours" class="calc-input" value="12">
+              </div>
+              <div class="calc-group">
+                <label for="input-offset-hours">抵免工時 (hr)</label>
+                <input type="number" id="input-offset-hours" class="calc-input" value="3">
+              </div>
+            </div>
+            
+            <div class="calc-row">
+              <div class="calc-group">
+                <label for="input-work-hours">個人實作工時 (hr)</label>
+                <input type="number" id="input-work-hours" class="calc-input" value="8">
+              </div>
+              <div class="calc-group">
+                <label for="input-group-sum">全組工時比總和 (%)</label>
+                <input type="number" id="input-group-sum" class="calc-input" value="180">
+              </div>
+            </div>
+            
+            <div class="calc-row">
+              <div class="calc-group">
+                <label for="input-report-words">報告貢獻字數</label>
+                <input type="number" id="input-report-words" class="calc-input" value="1500">
+              </div>
+              <div class="calc-group">
+                <label for="input-report-total">報告總字數</label>
+                <input type="number" id="input-report-total" class="calc-input" value="3000">
+              </div>
+            </div>
+            
+            <div class="calc-checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="check-no-photo">
+                沒有實驗照片 (-5% 專案貢獻度)
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="check-late-1">
+                遲繳報告一週內 (貢獻度打 8 折)
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="check-late-2">
+                遲繳報告兩週內 (貢獻度打 6 折)
+              </label>
+            </div>
+            
+            <div class="calc-results">
+              <div class="result-row">
+                <span class="result-label">個人可計工時 :</span>
+                <span class="result-val" id="res-target-hours">9 hr</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">個人工時比 :</span>
+                <span class="result-val" id="res-work-ratio">88.89%</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">實作組專案貢獻度 (85% Max) :</span>
+                <span class="result-val" id="res-impl-contribution">41.97%</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">報告組專案貢獻度 (15% Max) :</span>
+                <span class="result-val" id="res-report-contribution">7.50%</span>
+              </div>
+              <div class="result-row" style="margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px dashed var(--border-color)">
+                <span class="result-label" style="font-weight: 600;">估計總專案貢獻度 :</span>
+                <span class="result-val total" id="res-total-contribution">49.47%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Section: Lab Assignments -->
+      <section id="assignments" class="dashboard-card">
+        <div class="card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          課程作業記錄
+        </div>
+        
+        <div class="table-container">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th style="width: 8%">LAB</th>
+                <th style="width: 27%">小組作業</th>
+                <th style="width: 17%">繳交期限</th>
+                <th style="width: 17%">補交期限</th>
+                <th style="width: 15%">簡報</th>
+                <th style="width: 16%">專案專用下載</th>
+              </tr>
+            </thead>
+            <tbody id="assignments-tbody">
+              <tr>
+                <td><strong>1</strong></td>
+                <td>
+                  <span class="status-completed">✅ 專案完成</span><br>
+                  <small style="color:var(--text-muted)">2026/03/07 22:53 (第2版)</small>
+                </td>
+                <td>2026/03/09 23:59</td>
+                <td>2026/03/23 23:59</td>
+                <td>
+                  <a href="../Lab_01/PPT/2026_微算機實驗_lab1_七段顯示器.pdf" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                    Lab1 PPT
+                  </a>
+                </td>
+                <td>
+                  <a href="https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_01" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                    下載專案
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>2</strong></td>
+                <td>
+                  <span class="status-completed">✅ 專案完成</span><br>
+                  <span style="color:var(--text-secondary)">✅ 個人+小組報告</span><br>
+                  <small style="color:var(--warning)">⚠️ 壓縮檔檔名有誤</small><br>
+                  <small style="color:var(--danger)">❌ 第30組</small> &rarr; <span class="status-completed">✅ 第19組</span>
+                </td>
+                <td>
+                  2026/03/22 23:59<br>
+                  <small style="color:var(--danger)">(原 03/20)</small>
+                </td>
+                <td>2026/04/03 23:59</td>
+                <td>
+                  <a href="../Lab_02/PPT/2026_微算機實驗_lab2_多位元加法器與減法器.pdf" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                    Lab2 PPT
+                  </a>
+                </td>
+                <td>
+                  <a href="https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_02" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                    下載專案
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>3</strong></td>
+                <td>
+                  <span class="status-completed">✅ 專案完成</span><br>
+                  <span style="color:var(--text-secondary)">✅ 個人+小組報告</span>
+                </td>
+                <td>
+                  2026/04/07 23:59<br>
+                  <small style="color:var(--success)">已延後三天</small>
+                </td>
+                <td>2026/04/21 23:59</td>
+                <td>
+                  <a href="../Lab_03/PPT/2026_微算機實驗_lab3_BCD加法器.pdf" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                    Lab3 PPT
+                  </a>
+                </td>
+                <td>
+                  <a href="https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_03" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                    下載專案
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>4</strong></td>
+                <td>
+                  <span class="status-completed">✅ 專案完成</span><br>
+                  <span style="color:var(--text-secondary)">✅ 個人+小組報告</span><br>
+                  <small style="color:var(--text-muted)">2026/04/19 23:55</small>
+                </td>
+                <td>2026/04/19 23:59</td>
+                <td><span style="color:var(--text-muted)">-</span></td>
+                <td>
+                  <a href="../Lab_04/PPT/2026_微算機實驗_lab4_ALU.pdf" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                    Lab4 PPT
+                  </a>
+                </td>
+                <td>
+                  <a href="https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_04" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                    下載專案
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>5</strong></td>
+                <td>
+                  <span class="status-completed">✅ 繳交完成</span>
+                </td>
+                <td>2026/05/13 23:59</td>
+                <td>2026/05/27 00:00</td>
+                <td>
+                  <a href="../Lab_05/PPT/2026_微算機實驗_lab5_移位萬用暫存器.pdf" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                    Lab5 PPT
+                  </a>
+                </td>
+                <td>
+                  <a href="https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_05" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                    下載專案
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>6</strong></td>
+                <td>
+                  <span class="status-late">⚠️ 遲交作業</span><br>
+                  <small style="color:var(--warning)">2026/05/21 Email 補交</small>
+                </td>
+                <td>2026/05/20 23:59</td>
+                <td>2026/05/27 23:59</td>
+                <td>
+                  <a href="../Lab_06/PPT/2026_微算機實驗_lab6_移位除法器之狀態機.pdf" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                    Lab6 PPT
+                  </a>
+                </td>
+                <td>
+                  <a href="https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_06" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                    下載專案
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>7</strong></td>
+                <td>
+                  <span class="status-completed">✅ 繳交完成</span>
+                </td>
+                <td>2026/05/29 23:59</td>
+                <td>2026/06/12 23:59</td>
+                <td>
+                  <a href="../Lab_07/PPT/2026_微算機實驗_lab7_八位元除法器.pdf" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                    Lab7 PPT
+                  </a>
+                </td>
+                <td>
+                  <a href="https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_07" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                    下載專案
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>8</strong></td>
+                <td>
+                  <span class="status-missing">❌ 尚未繳交</span>
+                </td>
+                <td>2026/06/19 23:59</td>
+                <td>2026/06/26 23:59</td>
+                <td>
+                  <a href="../Lab_08/PPT/2026_微算機實驗_lab8_簡易CPU實作-讀取.pdf" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                    Lab8 PPT
+                  </a>
+                </td>
+                <td>
+                  <a href="https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_08" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                    下載專案
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>9</strong></td>
+                <td>
+                  <span class="status-missing">❌ 尚未繳交</span>
+                </td>
+                <td>2026/06/19 23:59</td>
+                <td>2026/06/26 23:59</td>
+                <td>
+                  <a href="../Lab_09/PPT/2026_微算機實驗_lab9_簡易CPU實作-2.pdf" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                    Lab9 PPT
+                  </a>
+                </td>
+                <td>
+                  <a href="https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_09" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                    下載專案
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>期末專案</strong></td>
+                <td>
+                  <span class="status-missing">❌ 尚未繳交</span>
+                </td>
+                <td>2026/06/26 23:59</td>
+                <td><span style="color:var(--danger)">不允許補交</span></td>
+                <td>
+                  <a href="../Finial_Project/PPT/2026_微算機實驗_FinalProject_pipline.pdf" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                    專案 PPT
+                  </a>
+                </td>
+                <td>
+                  <a href="https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Finial_Project" class="btn-icon-link" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                    下載專案
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+      <!-- Section: Penalty Details -->
+      <section id="penalties" class="dashboard-card">
+        <div class="card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          扣貢獻度內容
+        </div>
+        
+        <div class="table-container">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th style="width: 50%">違規項目</th>
+                <th style="width: 50%">扣分與處置標準</th>
+              </tr>
+            </thead>
+            <tbody id="penalties-tbody">
+              <tr>
+                <td><strong>沒有實驗照片</strong></td>
+                <td><span style="color:var(--danger)">直接扣除 5% 專案貢獻度</span>（可依實際情況商量）</td>
+              </tr>
+              <tr>
+                <td><strong>遲繳報告一週內</strong></td>
+                <td>專案貢獻度以 <span style="color:var(--warning)">8 折 (80%)</span> 計算</td>
+              </tr>
+              <tr>
+                <td><strong>遲繳報告兩週內</strong></td>
+                <td>專案貢獻度以 <span style="color:var(--danger)">6 折 (60%)</span> 計算</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+      <footer>
+        <p>微算機系統課程平台 &bull; 2026 學年度期末專案簽到與管理</p>
+        <p style="font-size: 0.75rem; margin-top: 0.5rem;">快速連結：<a href="https://en.wikipedia.org/wiki/List_of_Unicode_characters" target="_blank" style="color:var(--primary)">Unicode 對照表</a> | <a href="https://downgit.github.io/" target="_blank" style="color:var(--primary)">DownGit 專案下載器</a></p>
+      </footer>
+      
+    </main>
+  </div>
+
+  <script>
+    // Theme Toggling Logic
+    const themeCheckbox = document.getElementById('theme-checkbox');
+    themeCheckbox.addEventListener('change', () => {
+      if (themeCheckbox.checked) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    });
+
+    // Navigation Active Class Switcher
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        navItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+      });
+    });
+
+    // Update active nav item based on scroll position
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section');
+      let currentSectionId = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 150) {
+          currentSectionId = section.getAttribute('id');
+        }
+      });
+      
+      if (currentSectionId) {
+        navItems.forEach(item => {
+          item.classList.remove('active');
+          const href = item.querySelector('a').getAttribute('href').substring(1);
+          if (href === currentSectionId) {
+            item.classList.add('active');
+          }
+        });
+      }
+    });
+
+    // Dynamic Contribution Calculator
+    const attHoursInput = document.getElementById('input-att-hours');
+    const offsetHoursInput = document.getElementById('input-offset-hours');
+    const workHoursInput = document.getElementById('input-work-hours');
+    const groupSumInput = document.getElementById('input-group-sum');
+    const reportWordsInput = document.getElementById('input-report-words');
+    const reportTotalInput = document.getElementById('input-report-total');
+    
+    // Checkboxes
+    const noPhotoCheck = document.getElementById('check-no-photo');
+    const late1Check = document.getElementById('check-late-1');
+    const late2Check = document.getElementById('check-late-2');
+
+    // Mutually exclusive checkbox behavior for late submission
+    late1Check.addEventListener('change', () => {
+      if (late1Check.checked) late2Check.checked = false;
+      calculateContribution();
+    });
+    
+    late2Check.addEventListener('change', () => {
+      if (late2Check.checked) late1Check.checked = false;
+      calculateContribution();
+    });
+
+    // Add inputs event listeners
+    const inputs = [attHoursInput, offsetHoursInput, workHoursInput, groupSumInput, reportWordsInput, reportTotalInput, noPhotoCheck];
+    inputs.forEach(input => {
+      input.addEventListener('input', calculateContribution);
+      if (input.type === 'checkbox') {
+        input.addEventListener('change', calculateContribution);
+      }
+    });
+
+    function calculateContribution() {
+      // 1. Parse values
+      const attHours = parseFloat(attHoursInput.value) || 0;
+      const offsetHours = parseFloat(offsetHoursInput.value) || 0;
+      const workHours = parseFloat(workHoursInput.value) || 0;
+      const groupSum = parseFloat(groupSumInput.value) || 1; // prevent division by zero
+      const reportWords = parseFloat(reportWordsInput.value) || 0;
+      const reportTotal = parseFloat(reportTotalInput.value) || 1; // prevent division by zero
+
+      // 2. Personal target hours (個人可計工時)
+      const targetHours = Math.max(0, attHours - offsetHours);
+      document.getElementById('res-target-hours').textContent = `${targetHours.toFixed(1)} hr`;
+
+      // 3. Work Ratio (個人工時比)
+      let workRatio = 0;
+      if (targetHours > 0) {
+        workRatio = (workHours / targetHours) * 100;
+      }
+      document.getElementById('res-work-ratio').textContent = `${workRatio.toFixed(2)}%`;
+
+      // 4. Implementation Contribution (實作組專案貢獻度 = 個人工時比 / 全組工時比之和 * 85)
+      const implContribution = (workRatio / groupSum) * 85;
+      document.getElementById('res-impl-contribution').textContent = `${Math.min(85, implContribution).toFixed(2)}%`;
+
+      // 5. Report Contribution (報告組專案貢獻度 = 報告貢獻字數 / 報告總字數 * 15)
+      const reportContribution = (reportWords / reportTotal) * 15;
+      document.getElementById('res-report-contribution').textContent = `${Math.min(15, reportContribution).toFixed(2)}%`;
+
+      // 6. Base total contribution
+      let totalContribution = Math.min(85, implContribution) + Math.min(15, reportContribution);
+
+      // Apply penalties
+      if (noPhotoCheck.checked) {
+        totalContribution -= 5;
+      }
+
+      if (late1Check.checked) {
+        totalContribution *= 0.8;
+      } else if (late2Check.checked) {
+        totalContribution *= 0.6;
+      }
+
+      totalContribution = Math.max(0, Math.min(100, totalContribution));
+      document.getElementById('res-total-contribution').textContent = `${totalContribution.toFixed(2)}%`;
+    }
+
+    // Initial calculation run
+    calculateContribution();
+
+    // ==========================================
+    // Dynamic Sync from README.md
+    // ==========================================
+    async function initDynamicSync() {
+      const banner = document.getElementById('sync-banner');
+      const statusIcon = document.getElementById('sync-status-icon');
+      const statusText = document.getElementById('sync-status-text');
+      const syncTime = document.getElementById('sync-time');
+      
+      banner.style.display = 'flex';
+      banner.style.backgroundColor = 'rgba(99, 102, 241, 0.05)';
+      banner.style.borderColor = 'rgba(99, 102, 241, 0.15)';
+      statusIcon.textContent = '🔄';
+      statusText.textContent = '正在與 README.md 同步資料...';
+
+      try {
+        const response = await fetch('../README.md?t=' + Date.now());
+        if (!response.ok) {
+          throw new Error('HTTP status ' + response.status);
+        }
+        const text = await response.text();
+        const sections = parseMD(text);
+        
+        // Populate Lectures
+        if (sections['課程簡報'] && sections['課程簡報'].table && sections['課程簡報'].table[0]) {
+          const lecturesContainer = document.getElementById('lectures-container');
+          const lecturesHtml = sections['課程簡報'].table[0].map(cell => {
+            const match = cell.match(/\[([^\]]+)\]\(([^)]+)\)/);
+            if (!match) return '';
+            const label = match[1];
+            const url = match[2];
+            
+            let num = label;
+            let title = label;
+            const urlDecoded = decodeURIComponent(url);
+
+            if (urlDecoded.includes('Lecture_')) {
+              const lectureMatch = urlDecoded.match(/Lecture_(\d+)_([^.]+)\.pdf/);
+              if (lectureMatch) {
+                num = lectureMatch[1];
+                title = lectureMatch[2].replace(/_/g, ' ');
+              }
+            } else if (urlDecoded.includes('User_manual') || urlDecoded.includes('manual')) {
+              num = 'HW';
+              title = 'DE2-115 User Manual';
+            } else {
+              const lastSlash = urlDecoded.lastIndexOf('/');
+              const filename = lastSlash !== -1 ? urlDecoded.substring(lastSlash + 1) : urlDecoded;
+              title = filename.replace(/\.[^/.]+$/, "").replace(/_/g, ' ');
+            }
+            
+            return `
+              <div class="slide-card">
+                <div class="slide-num">${num}</div>
+                <div class="slide-info">
+                  <h4>${title}</h4>
+                  <p>課程簡報檔案</p>
+                </div>
+                <div class="slide-action">
+                  <a href="${fixRelativeUrl(url)}" class="btn-download" target="_blank">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                    下載
+                  </a>
+                </div>
+              </div>
+            `;
+          }).join('');
+          if (lecturesHtml) lecturesContainer.innerHTML = lecturesHtml;
+        }
+
+        // Populate Sign-in
+        if (sections['期期末專案簽到表'] || sections['期末專案簽到表']) {
+          const signinSection = sections['期期末專案簽到表'] || sections['期末專案簽到表'];
+          if (signinSection.table && signinSection.table.length > 0) {
+            const signinTbody = document.getElementById('signin-tbody');
+            const signinHtml = signinSection.table.map(row => {
+              if (row.length < 4) return '';
+              return `
+                <tr>
+                  <td><strong>${row[0]}</strong></td>
+                  <td>${formatAttendanceCell(row[1])}</td>
+                  <td>${formatAttendanceCell(row[2])}</td>
+                  <td>${row[3]}</td>
+                </tr>
+              `;
+            }).join('');
+            if (signinHtml) signinTbody.innerHTML = signinHtml;
+          }
+          
+          if (signinSection.quotes && signinSection.quotes.length > 0) {
+            const notesContainer = document.getElementById('signin-notes');
+            const notesHtml = signinSection.quotes.map(note => {
+              let className = 'note-box';
+              if (note.includes('加班') || note.includes('缺席')) {
+                className = 'note-box warning';
+              }
+              return `<div class="${className}">${note}</div>`;
+            }).join('');
+            if (notesHtml) notesContainer.innerHTML = notesHtml;
+          }
+        }
+
+        // Populate Assignments
+        if (sections['作業'] && sections['作業'].table) {
+          const assignmentsTbody = document.getElementById('assignments-tbody');
+          const assignmentsHtml = sections['作業'].table.map(row => {
+            if (row.length < 6) return '';
+            let status = row[1];
+            status = status.replace(/&#x2705;|✅/g, '<span class="status-completed">✅</span>');
+            status = status.replace(/&#x26A0;&#xFE0F;|⚠️/g, '<span class="status-late">⚠️</span>');
+            status = status.replace(/&#x274c;|❌/g, '<span class="status-missing">❌</span>');
+            
+            return `
+              <tr>
+                <td><strong>${row[0]}</strong></td>
+                <td>${status}</td>
+                <td>${row[2]}</td>
+                <td>${row[3]}</td>
+                <td>${parseMarkdownLink(row[4])}</td>
+                <td>${parseMarkdownLink(row[5])}</td>
+              </tr>
+            `;
+          }).join('');
+          if (assignmentsHtml) assignmentsTbody.innerHTML = assignmentsHtml;
+        }
+
+        // Populate Penalties
+        if (sections['扣貢獻度內容'] && sections['扣貢獻度內容'].table) {
+          const penaltiesTbody = document.getElementById('penalties-tbody');
+          const penaltiesHtml = sections['扣貢獻度內容'].table.map(row => {
+            if (row.length < 2) return '';
+            let penalty = row[1];
+            penalty = penalty.replace(/直接扣5%貢獻度/g, '<span style="color:var(--danger)">直接扣除 5% 專案貢獻度</span>');
+            penalty = penalty.replace(/8折/g, '<span style="color:var(--warning)">8 折</span>');
+            penalty = penalty.replace(/6折/g, '<span style="color:var(--danger)">6 折</span>');
+            return `
+              <tr>
+                <td><strong>${row[0]}</strong></td>
+                <td>${penalty}</td>
+              </tr>
+            `;
+          }).join('');
+          if (penaltiesHtml) penaltiesTbody.innerHTML = penaltiesHtml;
+        }
+
+        // Show Success Banner
+        banner.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
+        banner.style.borderColor = 'rgba(16, 185, 129, 0.2)';
+        banner.style.color = 'var(--success)';
+        statusIcon.textContent = '✅';
+        statusText.textContent = '已自動同步最新 README.md 資料更新！';
+        
+        const now = new Date();
+        const pad = (n) => n.toString().padStart(2, '0');
+        syncTime.textContent = `最後同步: ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+      } catch (e) {
+        console.warn('Sync failed, using static fallback:', e);
+        // Show Fallback Banner
+        banner.style.backgroundColor = 'rgba(245, 158, 11, 0.1)';
+        banner.style.borderColor = 'rgba(245, 158, 11, 0.2)';
+        banner.style.color = 'var(--warning)';
+        statusIcon.textContent = '⚠️';
+        statusText.textContent = '目前為離線靜態模式（受瀏覽器 CORS 限制，無法直接同步本機 README.md）。請使用本地網頁伺服器（如 localhost）以啟用動態更新。';
+        syncTime.textContent = '展示快取資料';
+      }
+    }
+
+    function parseMD(mdText) {
+      const sections = {};
+      const lines = mdText.split(/\r?\n/);
+      let currentSection = '';
+      
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (line.startsWith('## ')) {
+          currentSection = line.substring(3).trim();
+          sections[currentSection] = {
+            table: [],
+            quotes: []
+          };
+          continue;
+        }
+        
+        if (currentSection && sections[currentSection]) {
+          if (line.startsWith('|')) {
+            if (line.match(/^\|[\s:-|]+$/)) {
+              continue; // skip separator row
+            }
+            const cells = line.split('|').map(c => c.trim()).filter((c, idx, arr) => idx > 0 && idx < arr.length - 1);
+            // Check if it is a header row
+            const isHeader = cells.some(cell => cell === '日期' || cell === 'LAB' || cell === '項目' || cell === 'LAB<br>編號');
+            // But skip the special case "課程簡報" table header which is actually the first cells row containing files!
+            if (!isHeader || currentSection === '課程簡報') {
+              sections[currentSection].table.push(cells);
+            }
+          } else if (line.startsWith('>')) {
+            sections[currentSection].quotes.push(line.substring(1).trim());
+          }
+        }
+      }
+      return sections;
+    }
+
+    function fixRelativeUrl(url) {
+      if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('//')) {
+        return url;
+      }
+      if (url.startsWith('./')) {
+        return '../' + url.substring(2);
+      }
+      if (url.startsWith('../')) {
+        return '../' + url;
+      }
+      return '../' + url;
+    }
+
+    function formatAttendanceCell(text) {
+      let html = '';
+      if (text.includes('&#x2705;') || text.includes('✅')) {
+        html += '<span class="badge badge-present">✅ 出席</span>';
+      } else if (text.includes('&#x274c;') || text.includes('❌')) {
+        if (text.toLowerCase().includes('pass')) {
+          html += '<span class="badge badge-pass">❌ 抵免 (pass)</span>';
+        } else {
+          html += '<span class="badge badge-absent">❌ 缺席</span>';
+        }
+      }
+      
+      // Circled numbers
+      const circledRegex = /&#x(2777|24FF|246[0-9a-fA-F]|247[0-9a-fA-F]|277[6-9a-fA-F]|278[0-9a-fA-F]);|❶|❷|❸|❹|❺|❻|❼|❽|❾|❿|⓿|①|②|③|④|⑤|⑥|⑦|⑧|⑨|⑩/g;
+      const matches = text.match(circledRegex);
+      if (matches) {
+        matches.forEach(m => {
+          html += ` <span class="badge-circle">${m}</span>`;
+        });
+      }
+      return html || text;
+    }
+
+    function parseMarkdownLink(cellText) {
+      const match = cellText.match(/\[([^\]]+)\]\(([^)]+)\)/);
+      if (!match) return cellText;
+      const label = match[1];
+      const url = fixRelativeUrl(match[2]);
+      
+      let svg = '<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>';
+      if (url.includes('downgit') || url.includes('download') || url.includes('Github') || url.includes('github')) {
+        svg = '<svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>';
+      }
+      
+      return `<a href="${url}" class="btn-icon-link" target="_blank">${svg}${label}</a>`;
+    }
+
+    // Run dynamic synchronization
+    initDynamicSync();
+  </script>
+</body>
+</html>
