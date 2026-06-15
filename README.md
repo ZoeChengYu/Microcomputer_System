@@ -1,7 +1,7 @@
 # Microcomputer_System
 ## 課程簡報
-| [Datasheet](DE2_115_User_manual.pdf)| [0](./課程資料/2026_微算機系統_Lecture_00_QuartusII軟體安裝與使用.pdf)| [1](./課程資料/2026_微算機系統_Lecture_01_數位邏輯設計概念v1.pdf)| [2](./課程資料/2026_微算機系統_Lecture_02_數值表示法與數學電路.pdf)| [3](./課程資料/2026_微算機系統_Lecture_03_多工器與組合電路.pdf)| [4](./課程資料/2026_微算機系統_Lecture_04_循序電路設計.pdf) | [5](./課程資料/2026_微算機系統_Lecture_05_同步順序電路.pdf) | [6](./課程資料/2026_微算機系統_Lecture_06_基本處理器設計.pdf) |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| [Datasheet](DE2_115_User_manual.pdf)| [0](./課程資料/2026_微算機系統_Lecture_00_QuartusII軟體安裝與使用.pdf)| [1](./課程資料/2026_微算機系統_Lecture_01_數位邏輯設計概念v1.pdf)| [2](./課程資料/2026_微算機系統_Lecture_02_數值表示法與數學電路.pdf)| [3](./課程資料/2026_微算機系統_Lecture_03_多工器與組合電路.pdf)| [4](./課程資料/2026_微算機系統_Lecture_04_循序電路設計.pdf) | [5](./課程資料/2026_微算機系統_Lecture_05_同步順序電路.pdf) | [6](./課程資料/2026_微算機系統_Lecture_06_基本處理器設計.pdf) | [7](./課程資料/2026_微算機系統_Lecture_07_Pipeline.pdf)
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 ## 作業
 LAB<br>編號 | 小組作業 | 繳交期限 | 補交期限 | 簡報連結 | 專案下載<br>連結 |
 :-----: | :------------:| :----------:  | :----------: | :-----------: | :---: |
@@ -14,6 +14,7 @@ LAB<br>編號 | 小組作業 | 繳交期限 | 補交期限 | 簡報連結 | 專�
 7 | &#x2705; | 2026/05/29 23:59 | 2026/06/12 23:59 | [Lab7](./Lab_07/PPT/2026_微算機實驗_lab7_八位元除法器.pdf) | [Lab_07](https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_07)
 8 | &#x274c; | 2026/06/19 23:59 | 2026/06/26 23:59 | [Lab8](./Lab_08/PPT/2026_微算機實驗_lab8_簡易CPU實作-讀取.pdf) | [Lab_08](https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_08)
 9 | &#x274c; | 2026/06/19 23:59 | 2026/06/26 23:59 | [Lab9](./Lab_09/PPT/2026_微算機實驗_lab9_簡易CPU實作-2.pdf) |  [Lab_09](https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Lab_09)
+finial project| &#x274c; | 2026/06/26 23:59 | 不允許補交 | [Finial](./finial%20project/PPT/2026_微算機實驗_FinalProject_pipline.pdf) | [Finial_Project](https://downgit.github.io/#/home?url=https://github.com/ZoeChengYu/Microcomputer_System/tree/main/Finial_Project)
 
 [Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters)
 [downgit](https://downgit.github.io/)
