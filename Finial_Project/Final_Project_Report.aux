@@ -2,38 +2,49 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand*\HyPL@Entry[1]{}
 \HyPL@Entry{0<</S/D>>}
-\@writefile{toc}{\contentsline {section}{\numberline {1}實驗目的與專案要求}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1}實驗目的與專案要求}{2}{section.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}核心硬體架構與規格設計}{2}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}微架構管線暫存器定義}{2}{subsection.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}資料前饋單元 (Forwarding Unit) 設計邏輯}{3}{subsection.2.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces 前饋單元 (Forwarding Unit) 邏輯架構圖}}{3}{figure.1}\protected@file@percent }
-\newlabel{fig:forwarding_unit}{{1}{3}{前饋單元 (Forwarding Unit) 邏輯架構圖}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces 前饋單元 (Forwarding Unit) 邏輯架構圖}}{3}{figure.caption.2}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:forwarding_unit}{{1}{3}{前饋單元 (Forwarding Unit) 邏輯架構圖}{figure.caption.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}多時序除法狀態機與管線 Stall 機制}{4}{subsection.2.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces 多時序除法狀態機 (FSM) 狀態移轉圖}}{4}{figure.2}\protected@file@percent }
-\newlabel{fig:div_fsm}{{2}{4}{多時序除法狀態機 (FSM) 狀態移轉圖}{figure.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}管線暫停 (Stall) 與氣泡插入 (Bubble) 控制：}{4}{subsubsection.2.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces 多時序除法狀態機 (FSM) 狀態移轉圖}}{4}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:div_fsm}{{2}{4}{多時序除法狀態機 (FSM) 狀態移轉圖}{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}管線暫停 (Stall) 與氣泡插入 (Bubble) 控制：}{5}{subsubsection.2.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}除以零防錯 Bypass：}{5}{subsubsection.2.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}硬體週邊配置與腳位對照表}{5}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}指撥開關（輸入）與按鈕時脈}{5}{subsection.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces 輸入週邊與腳位對照表}}{5}{table.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces 輸入週邊與腳位對照表}}{5}{table.caption.4}\protected@file@percent }
+\newlabel{tab:input_pin}{{1}{5}{輸入週邊與腳位對照表}{table.caption.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}七段顯示器與 LED 燈（輸出）}{6}{subsection.3.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces 輸出週邊與腳位對照表}}{6}{table.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces 輸出週邊與腳位對照表}}{6}{table.caption.5}\protected@file@percent }
+\newlabel{tab:output_pin}{{2}{6}{輸出週邊與腳位對照表}{table.caption.5}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}VHDL 原始碼架構分析}{6}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}資料路徑前饋邏輯 (VHDL組合邏輯程式片段)}{6}{subsection.4.1}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}組合邏輯前饋與 conflict 偵測程式片段}{6}{lstlisting.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}同步管線暫停與氣泡插入 (VHDL時序邏輯程式片段)}{8}{subsection.4.2}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}時序邏輯中 Stall 氣泡插入與除法器推進程式片段}{8}{lstlisting.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}測試資料與板載硬體驗證}{10}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}測資 1：基本暫存器載入與算術運算（無 Hazard）}{10}{subsection.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}測資 2：EXE 階段資料衝突與前饋 (EXE Forwarding)}{10}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}測資 3：同時 EXE 與 WB 階段資料衝突與前饋}{11}{subsection.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}測資 4：多時序除法管線暫停 (DIV Stall)}{11}{subsection.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}測資 5：除以零防錯與 Bypass}{11}{subsection.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}板載硬體照片與影片佐證說明}{12}{subsection.5.6}\protected@file@percent }
+\newlabel{lst:forwarding_logic}{{1}{6}{組合邏輯前饋與 conflict 偵測程式片段}{lstlisting.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}{\ignorespaces 組合邏輯前饋與 conflict 偵測程式片段}}{6}{lstlisting.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}同步管線暫停與氣泡插入 (VHDL時序邏輯程式片段)}{7}{subsection.4.2}\protected@file@percent }
+\newlabel{lst:stall_logic}{{2}{7}{時序邏輯中 Stall 氣泡插入與除法器推進程式片段}{lstlisting.2}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}{\ignorespaces 時序邏輯中 Stall 氣泡插入與除法器推進程式片段}}{7}{lstlisting.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}測試資料與板載硬體驗證}{8}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}測資 1：基本暫存器載入與算術運算（無 Hazard）}{8}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}測資 2：EXE 階段資料衝突與前饋 (EXE Forwarding)}{8}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}同時 EXE 與 WB 階段資料衝突與前饋}{9}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}測資 4：多時序除法管線暫停 (DIV Stall)}{9}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}測資 5：除以零防錯與 Bypass}{10}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}板載硬體照片與影片佐證說明}{10}{subsection.5.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces 資料衝突前饋驗證狀態 (A)}}{11}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:forwarding_photo_1}{{3}{11}{資料衝突前饋驗證狀態 (A)}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 資料衝突前饋驗證狀態 (B)}}{11}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:forwarding_photo_2}{{4}{11}{資料衝突前饋驗證狀態 (B)}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 多時序除法管線暫停 (DIV Stall) 驗證狀態}}{12}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:div_stall_photo}{{5}{12}{多時序除法管線暫停 (DIV Stall) 驗證狀態}{figure.caption.8}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {6}實驗心得與深度思考}{12}{section.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}楊承諭的心得與思考 (微架構實作組)}{12}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}黃楷程的心得與思考 (驗證測試與報告組)}{12}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}黃楷程的心得與思考 (驗證測試與報告組)}{13}{subsection.6.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {7}小組工作分配與貢獻度}{13}{section.7}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces 組員分工與貢獻度表}}{13}{table.3}\protected@file@percent }
-\newlabel{tab:contributions}{{3}{13}{組員分工與貢獻度表}{table.3}{}}
-\gdef \@abspage@last{13}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces 組員分工與貢獻度表}}{14}{table.caption.9}\protected@file@percent }
+\newlabel{tab:contributions}{{3}{14}{組員分工與貢獻度表}{table.caption.9}{}}
+\gdef \@abspage@last{14}
