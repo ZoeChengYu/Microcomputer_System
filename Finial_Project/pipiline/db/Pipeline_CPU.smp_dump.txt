@@ -1,0 +1,6 @@
+
+State Machine - |Pipeline_CPU|div_state
+Name div_state.DIV_DONE div_state.DIV_RUN div_state.DIV_IDLE 
+div_state.DIV_IDLE 0 0 0 
+div_state.DIV_RUN 0 1 1 
+div_state.DIV_DONE 1 0 1 

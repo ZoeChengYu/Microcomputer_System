@@ -1,0 +1,240 @@
+m255
+K4
+z2
+Z0 !s12c _opt2
+Z1 !s99 nomlopt
+R0
+R1
+Z2 !s12c _opt1
+R1
+R0
+R1
+R0
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+!s12c _opt
+R1
+!s11e vcom 2025.2 2025.05, May 31 2025
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z3 dC:/Users/ChengYu/Desktop/micro/Finial_Project/pipiline/simulation/qsim
+T_opt
+!i145 1
+!i144 0
+!s110 1782110019
+VnSCWm<fPc5omH0[H?ckg51
+Z4 04 24 17 work pipeline_cpu_vhd_vec_tst pipeline_cpu_arch 1
+=1-d843aece4a84-6a38d740-266-2ef0
+R1
+Z5 !s12f OEM100
+Z6 !s12b OEM100
+Z7 !s124 OEM10U3 
+Z8 !s135 nogc
+o-quiet -auto_acc_if_foreign -work work -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim
+Z9 tCvgOpt 0 defaultOptions 1107585188
+n@_opt
+Z10 OL;O;2025.2;82
+R3
+T_opt1
+!i145 1
+!i144 0
+!s110 1782121107
+VG0lCzdT?cihJSQD503^V@0
+R4
+=1-d843aece4a84-6a390293-b-7738
+R1
+R5
+R6
+R7
+R8
+Z11 o-quiet -auto_acc_if_foreign -work work -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim +acc
+R9
+n@_opt1
+R10
+R3
+T_opt2
+!i145 1
+!i144 0
+!s110 1782121330
+V5iBPn>iNf_9ebkG8DIFj20
+R4
+=1-d843aece4a84-6a390371-346-4350
+R1
+R5
+R6
+R7
+R8
+R11
+R9
+n@_opt2
+R10
+Ehard_block
+Z12 w1782121327
+Z13 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z14 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 Fl:z4XT4QeMENabFAZLcN1
+Z15 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z16 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z17 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z18 DPx10 cycloneive 21 cycloneive_components 0 22 G7f=dFn9TOAba<6b7AgXm2
+!i122 36
+Z19 dc:/Users/ChengYu/Desktop/micro/Finial_Project/pipiline/simulation/qsim
+Z20 8Pipeline_CPU.vho
+Z21 FPipeline_CPU.vho
+l0
+L35 1
+VMK=A;40ce7^o]bAk<=Mc12
+!s100 >mXi5[`cD`bFC`UBKA<om3
+Z22 OL;C;2025.2;82
+32
+Z23 !s110 1782121329
+!i10b 1
+Z24 !s108 1782121329.000000
+Z25 !s90 -work|work|Pipeline_CPU.vho|
+Z26 !s107 Pipeline_CPU.vho|
+!i113 0
+Z27 o-work work
+Z28 tExplicit 1 CvgOpt 0 defaultOptions 1083072464
+Astructure
+R13
+R14
+R15
+R16
+R17
+R18
+DEx4 work 10 hard_block 0 22 MK=A;40ce7^o]bAk<=Mc12
+!i122 36
+l65
+L51 20
+VK@^2ESJkSeHg`X4Zi5Q<11
+!s100 [5;Wd8QGQ>@2NGoJ1I]Y43
+R22
+32
+R23
+!i10b 1
+R24
+R25
+R26
+!i113 0
+R27
+R28
+Epipeline_cpu
+R12
+R14
+R18
+R13
+Z29 DPx6 altera 11 dffeas_pack 0 22 HeG`SlgMb6=o0zVGZnEz^3
+R15
+R16
+R17
+Z30 DPx6 altera 28 altera_primitives_components 0 22 k4Yn[[d=9S17VVF>?>37I3
+!i122 36
+R19
+R20
+R21
+l0
+L80 1
+VFd8oD54Ic4X1LbP_HC@QF0
+!s100 SF[VPieUfnH<O<lH@[>EL0
+R22
+32
+R23
+!i10b 1
+R24
+R25
+R26
+!i113 0
+R27
+R28
+Astructure
+R14
+R18
+R13
+R29
+R15
+R16
+R17
+R30
+DEx4 work 12 pipeline_cpu 0 22 Fd8oD54Ic4X1LbP_HC@QF0
+!i122 36
+l671
+L175 9253
+VcMM99eQHzG5FYEzOAIE1D1
+!s100 cY6cW>HJ6eKM=]J@>cj=E2
+R22
+32
+R23
+!i10b 1
+R24
+R25
+R26
+!i113 0
+R27
+R28
+Epipeline_cpu_vhd_vec_tst
+Z31 w1782121326
+R16
+R17
+!i122 37
+R19
+Z32 8Waveform.vwf.vht
+Z33 FWaveform.vwf.vht
+l0
+L32 1
+V?[Y3Z6[PhK3bM1@ogVm1@1
+!s100 Ea[iO2D;OZPVCAfzaL1[T2
+R22
+32
+R23
+!i10b 1
+R24
+Z34 !s90 -work|work|Waveform.vwf.vht|
+Z35 !s107 Waveform.vwf.vht|
+!i113 0
+R27
+R28
+Apipeline_cpu_arch
+R16
+R17
+DEx4 work 24 pipeline_cpu_vhd_vec_tst 0 22 ?[Y3Z6[PhK3bM1@ogVm1@1
+!i122 37
+l63
+L34 207
+V8kYn5=]MEROWfOC0S@i:e3
+!s100 zXGi7>z6QQ[kkW?KRO>gT3
+R22
+32
+R23
+!i10b 1
+R24
+R34
+R35
+!i113 0
+R27
+R28

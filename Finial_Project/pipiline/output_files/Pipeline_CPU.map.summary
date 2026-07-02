@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Jun 17 09:43:00 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : Pipeline_CPU
+Top-level Entity Name : Pipeline_CPU
+Family : Cyclone IV E
+Total logic elements : 407
+    Total combinational functions : 331
+    Dedicated logic registers : 130
+Total registers : 130
+Total pins : 76
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

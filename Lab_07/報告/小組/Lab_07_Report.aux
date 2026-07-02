@@ -1,0 +1,43 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand*\HyPL@Entry[1]{}
+\HyPL@Entry{0<</S/D>>}
+\@writefile{toc}{\contentsline {section}{\numberline {1}實驗內容}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}實驗目標}{1}{subsection.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}硬體架構概述}{2}{subsection.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}腳位分配 (Pin Assignment)}{2}{subsection.1.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces FPGA 腳位分配表}}{2}{table.caption.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}邏輯設計與實驗過程}{2}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}恢復除法演算法說明}{2}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}有限狀態機 (FSM) 狀態轉移}{3}{subsection.2.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces FSM 狀態轉移表}}{3}{table.caption.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}實驗步驟}{3}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}實驗結果（照片紀錄）}{3}{section.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces 初始狀態（Start）：SW[16] 撥高完成 Reset，所有 LED 熄滅，七段顯示空白，準備開始除法運算。}}{4}{figure.caption.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces 輸入被除數與除數：SW[15..8] 設定被除數，SW[7..0] 設定除數，確認撥碼開關設定正確。}}{5}{figure.caption.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces 按下 KEY[0] 第一次：FSM 從 Start 進入 S1，R 暫存器執行試減，LED 顯示目前餘數狀態。}}{6}{figure.caption.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces FSM 進入 S2a（餘數非負）：商數暫存器左移並串入 '1'，LED 顯示商數中間運算過程。}}{7}{figure.caption.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces FSM 進入 S3：除數暫存器右移一位，計數器遞增，準備進行下一輪迭代。}}{8}{figure.caption.10}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces 迭代過程中 FSM 進入 S2b（餘數為負）：執行餘數恢復操作（R = R + D），商數左移串入 '0'。}}{9}{figure.caption.11}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces 持續按壓 KEY[0] 逐步執行迭代：LED 顯示各迭代步驟中商數與餘數的中間值。}}{10}{figure.caption.12}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces 第 8 次迭代中的 S1 狀態：FSM 執行最後一次試減操作。}}{11}{figure.caption.13}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces 第 9 次迭代後 S3 進入 S4（\texttt  {count = 8}）：FSM 凍結，運算完成。}}{12}{figure.caption.14}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces S4 完成狀態（一）：HEX1:HEX0 顯示最終商數，HEX3:HEX2 顯示最終餘數（十六進位格式）。}}{13}{figure.caption.15}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces S4 完成狀態（二）：整體開發板正面照，確認七段顯示器顯示最終計算結果。}}{14}{figure.caption.16}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces S4 完成狀態（三）：近距離確認四個七段顯示器上的數值正確無誤。}}{15}{figure.caption.17}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces 驗證另一組輸入：更換 SW 撥碼開關設定，確認除法器對不同輸入值的運算正確性。}}{16}{figure.caption.18}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces 重新 Reset 後再次運算（一）：SW[16] 撥高後，FSM 回到 Start 狀態，系統就緒。}}{17}{figure.caption.19}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces 重新 Reset 後再次運算（二）：設定新的被除數與除數，逐步驗證第二組測試案例。}}{18}{figure.caption.20}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces 第二組測試的中間迭代過程：LED 顯示不同輸入下各步驟的暫存器狀態。}}{19}{figure.caption.21}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces 第二組測試的 S4 結果（一）：七段顯示器顯示新輸入的最終商與餘數。}}{20}{figure.caption.22}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces 第二組測試的 S4 結果（二）：完整板面照，確認 LED 與七段顯示器輸出一致。}}{21}{figure.caption.23}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces 特殊邊界值測試（一）：測試除數與被除數相等的特殊情況，驗證商為 1、餘數為 0。}}{22}{figure.caption.24}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces 特殊邊界值測試（二）：七段顯示器顯示 HEX1:HEX0 = 0100（商 4），驗證結果正確。}}{23}{figure.caption.25}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces 整體驗證完成（近距離）：清晰可見七段顯示器上的最終商與餘數讀值。}}{24}{figure.caption.26}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces 最終驗證照（全板面）：開發板運作正常，LED 與七段顯示器均呈現正確計算結果，實驗圓滿完成。}}{25}{figure.caption.27}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}實驗心得}{26}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}程式碼 (Division.vhd)}{27}{section.5}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}{\ignorespaces Division.vhd --- 8-bit 恢復除法器頂層模組（結構化架構）}}{27}{lstlisting.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}程式碼 (N\_bit\_DFF.vhd)}{30}{section.6}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}{\ignorespaces N\_bit\_DFF.vhd --- 泛用 N-bit 移位暫存器元件（重用自 Lab 05）}}{30}{lstlisting.2}\protected@file@percent }
+\gdef \@abspage@last{31}

@@ -1,0 +1,48 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{xeCJK} % Support for Chinese characters
+\setCJKmainfont{Microsoft JhengHei}[
+    AutoFakeBold=2.5,
+    AutoFakeItalic=true
+]
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{booktabs}
+\usepackage{float}
+
+\begin{document}
+
+\noindent
+\textbf{個人報告} \hfill 系級：資工二 \quad 學號：113590051 \quad 姓名：楊承諭
+
+\vspace{1.5em}
+\begin{center}
+    {\Large \textbf{個人心得報告}}
+\end{center}
+\vspace{1em}
+
+本次 Lab 07 主要學習以 VHDL 實作八位元還原除法器（8-bit Restoring Divider）的結構式（Structural）硬體設計，並在 FPGA 開發板上完成實體驗證。相較於前幾次實驗以行為式描述（Behavioral）為主，本次要求以結構式架構（Structural Architecture）連接各個子電路元件，使電路的硬體層次更為明確清晰。
+
+在設計過程中，我深入理解了還原除法演算法（Restoring Division Algorithm）的運作原理：每一輪迭代首先嘗試將餘數暫存器（R）減去除數暫存器（D），若結果為正（MSB = 0），則表示可整除，商暫存器（Q）左移並補入 '1'；若結果為負（MSB = 1），則需還原餘數（$R \leftarrow R + D$），商暫存器左移補入 '0'。此過程共需迭代 9 次（對應 8 位元運算），由有限狀態機（FSM）統一調控。
+
+本次實驗最大的特點在於，嚴格要求重用 Lab 05 所設計的 N-bit 多功能通用移位暫存器（\texttt{n\_bit\_DFF}）作為本次的子元件，分別實體化為 8-bit 商暫存器（Q）、17-bit 除數暫存器（D）以及 17-bit 餘數暫存器（R）。這讓我深刻體驗到 VHDL 中 \texttt{generic map} 與 \texttt{port map} 的強大靈活性——透過 \texttt{generic} 參數調整位元寬度，同一份元件定義即可被不同位寬的暫存器所共用，大幅提升了設計的重用性與可維護性。
+
+在 FSM 控制邏輯方面，本次設計包含 Start、S1、S2a、S2b、S3、S4 共六個狀態。Start 狀態負責初始化各暫存器（Q 清零、載入 Dividend 至 R 低位、Divisor 至 D 高位）；S1 執行減法；S2a/S2b 依據減法結果決定是否還原及商位元的填入；S3 負責除數右移並計數，計滿 9 次後進入 S4 停止。在完成狀態 S4 時，電路同步將商與餘數的最終值以十六進位格式顯示於四個七段顯示器（HEX0–HEX3）上，而在計算過程中則即時透過 LED 燈組反映暫存器的動態變化，使人能夠以手動按壓 KEY[0] 的方式，逐步觀察每一拍的計算進展。
+
+整體而言，本次實驗讓我對「結構式 VHDL 設計方法」、「元件重用與參數化設計」以及「多狀態 FSM 精確控制多個資料路徑」有了更深層的掌握。儘管在初期設計時，對 17-bit 暫存器的位元對齊（MSB 符號位判斷）與狀態機各狀態間資料路徑切換的時序掌握上花費了較多時間思考，但最終燒錄至 FPGA 後，LED 燈號與七段顯示器的結果完全符合預期，實驗成功完成，也為未來設計更複雜的算術邏輯單元（ALU）奠定了紮實的基礎。
+
+\vspace{2em}
+\noindent
+\textbf{工作分配表}
+\vspace{0.5em}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{llcl}
+        \toprule
+        \textbf{學號} & \textbf{姓名} & \textbf{比重} & \textbf{工作項目} \\ \midrule
+        113590051 & 楊承諭 & 75\% & 小組專案製作 \\
+        113590017 & 黃楷程 & 25\% & 小組報告製作 \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+\end{document}

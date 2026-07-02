@@ -1,0 +1,42 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{xeCJK} % Support for Chinese characters
+\setCJKmainfont{Microsoft JhengHei}[
+    AutoFakeBold=2.5,
+    AutoFakeItalic=true
+]
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{booktabs}
+\usepackage{float}
+
+\begin{document}
+
+\noindent
+\textbf{個人報告} \hfill 系級：資工二 \quad 學號：113590051 \quad 姓名：楊承諭
+
+\vspace{1.5em}
+\begin{center}
+    {\Large \textbf{個人心得報告}}
+\end{center}
+\vspace{1em}
+
+本次 Lab 09 主要學習在先前簡易 CPU 的基礎上，擴充算術與邏輯運算指令，包括加法（\texttt{ADD}）、邏輯與（\texttt{AND}）、小於置位（\texttt{SLT}）、減法（\texttt{SUB A-B} 與 \texttt{SUB B-A}）以及無號數除法（\texttt{DIV}）。此設計使得處理器具備了基本的算術邏輯單元（ALU）功能。在 VHDL 實作中，我特別設計了組合邏輯的匯流排架構。不同於一般同步寫入後才觀察結果的設計，當前指令的 ALU 計算結果會即時反應在 \texttt{Bus\_val} 上，並透過七段顯示器 HEX0 與 HEX1 即時呈現。這讓使用者在按下 KEY[0] 手動時脈按鍵之前，就能先預覽即將寫入目標暫存器 Rs 的運算結果，極大地提升了實機偵錯的便利性。
+
+在除法指令的實作中，我們引入了自訂的八位元無號數除法函數 \texttt{udiv8}，其內部演算法本質上是 procedural 的還原除法（Restoring Division）模擬。我們在函數中實作了除以零（Division-by-zero）的防護機制：當除數為零時，自動回傳 \texttt{0xFF} 作為哨兵值（Sentinel），以確保系統運作的穩定性。這次實驗讓我深刻體會到如何將演算法與硬體暫存器傳輸級（RTL）邏輯進行結合，特別是在處理多功能 ALU 的資料多路選擇與狀態控制上，收穫了寶貴的實務設計經驗。
+
+\vspace{2em}
+\noindent
+\textbf{工作分配表}
+\vspace{0.5em}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{llcl}
+        \toprule
+        \textbf{學號} & \textbf{姓名} & \textbf{比重} & \textbf{工作項目} \\ \midrule
+        113590051 & 楊承諭 & 65\% & 小組專案製作與測試 \\
+        113590017 & 黃楷程 & 35\% & 小組報告製作 \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+\end{document}

@@ -1,0 +1,9 @@
+
+State Machine - |Division|current_state
+Name current_state.S4 current_state.S3 current_state.S2b current_state.S2a current_state.S1 current_state.Start 
+current_state.Start 0 0 0 0 0 0 
+current_state.S1 0 0 0 0 1 1 
+current_state.S2a 0 0 0 1 0 1 
+current_state.S2b 0 0 1 0 0 1 
+current_state.S3 0 1 0 0 0 1 
+current_state.S4 1 0 0 0 0 1 

@@ -1,0 +1,44 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{xeCJK} % Support for Chinese characters
+\setCJKmainfont{Microsoft JhengHei}[
+    AutoFakeBold=2.5,
+    AutoFakeItalic=true
+]
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{booktabs}
+\usepackage{float}
+
+\begin{document}
+
+\noindent
+\textbf{個人報告} \hfill 系級：資工二 \quad 學號：113590051 \quad 姓名：楊承諭
+
+\vspace{1.5em}
+\begin{center}
+    {\Large \textbf{個人心得報告}}
+\end{center}
+\vspace{1em}
+
+本次 Lab 06 主要學習以 VHDL 實作位移除法器 (Shift Divider) 的有限狀態機 (FSM) 控制器，並在 FPGA 開發板上進行硬體驗證。實驗的核心在於理解除法運算中，如何透過 FSM 來調控暫存器位移、加減與迭代次數的流程。
+
+在實作過程中，我深入體會到如何將抽象的狀態轉移圖 (State Transition Diagram) 轉譯為具體的 VHDL 程式碼。我們將電路分為「同步狀態轉移」與「組合邏輯次態判定」兩部分，這使程式結構極為清晰。FSM 包含了 Start（初始等待）、S1（餘數判斷）、S2a/S2b（數值更新與計算）、S3（計數與迴圈判定）以及 S4（完成）等六個狀態，並根據輸入訊號 $w$ 來決定狀態的流轉。
+
+本次實驗最大的收穫在於硬體整合與除錯的實務經驗。當我們把編譯完成的電路燒錄至開發板時，透過分配腳位將 clk 對應到手動按鍵 (KEY[0])，並將 3-bit 的狀態編碼（如 Start: 000, S1: 001, ..., S4: 101）輸出到 LED 燈上。這讓我能以手動給予時脈的方式，一步步觀察 LED 燈的明滅，從而親眼見證狀態機的轉移流程完全符合預期。雖然在初期撰寫 VHDL 對於狀態轉移邏輯的條件分支有些許疑慮，但藉由實體開發板上的即時燈號反饋與除錯，我們很快就修正了邏輯問題。這項實作不僅加深了我對循序邏輯電路與 FSM 設計的理解，也為未來設計更複雜的微處理器控制單元奠定了厚實的基礎。
+
+\vspace{2em}
+\noindent
+\textbf{工作分配表}
+\vspace{0.5em}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{llcl}
+        \toprule
+        \textbf{學號} & \textbf{姓名} & \textbf{比重} & \textbf{工作項目} \\ \midrule
+        113590051 & 楊承諭 & 100\% & 小組專案製作與小組報告製作 \\
+        113590017 & 黃楷程 & 0\% & 無貢獻內容 \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+\end{document}

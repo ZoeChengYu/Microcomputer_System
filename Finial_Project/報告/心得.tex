@@ -1,0 +1,46 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{xeCJK} % Support for Chinese characters
+\setCJKmainfont{Microsoft JhengHei}[
+    AutoFakeBold=2.5,
+    AutoFakeItalic=true
+]
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{booktabs}
+\usepackage{float}
+
+\begin{document}
+
+\noindent
+\textbf{個人報告} \hfill 系級：資工二 \quad 學號：113590051 \quad 姓名：楊承諭
+
+\vspace{1.5em}
+\begin{center}
+    {\Large \textbf{個人心得報告}}
+\end{center}
+\vspace{1em}
+
+在此次期末專題中，我主要負責四階段管線處理器（Pipeline CPU）的核心 RTL 邏輯設計、硬體描述語言（VHDL）的實作與 Quartus II 的電路模擬偵錯。
+本專題的管線結構包含三個主要管線暫存器（IF/ID、ID/EXE、EXE/WB），要將指令解碼、暫存器讀寫、ALU 計算與寫回（Write Back）正確地在不同的時脈週期傳遞，是一大挑戰。
+特別是在處理「資料冒險（Data Hazard）」時，我設計了動態前向傳遞單元（Forwarding Unit），藉由比對執行階段與寫回階段的目標暫存器，即時將計算結果旁路（Bypass）至解碼階段，並透過硬體綠色 LED 燈（LEDG[0]）即時呈現冒險偵測狀態，成功解決了 RAW 冒險。
+
+此外，在除法器（DIV）的設計中，為了實作八位元無號數的還原除法（Restoring Division）演算法，我採用了三狀態的有限狀態機（FSM），在執行除法時將管線暫停（Stall）8個時脈週期，同時在管線中插入 NOP 氣泡（Bubble），以確保數據的一致性。當偵測到除以零（Division-by-zero）時，我加入哨兵值（Sentinel）0xFF 的快速旁路機制，不啟動 Stall 直接輸出結果。
+
+在模擬過程中，我碰到了最棘手的問題是 Quartus II 模擬器（Qsim）產生的 Delta-Cycle 偏斜與 Setup/Hold 時間違規。在初始波形中，因為輸入開關（SW）訊號的跳變點與 manual 時脈上升緣（KEY[0]）完全重合，導致編譯器產生暫存器寫回錯誤（如 R3 被誤寫入 22，而 R1 與 R2 維持 0）。我花費了大量時間觀察 VCD 波形與 trace，最終發現動態輸入訊號若與 clock 上升緣完全對齊，在時序模擬中會發生嚴重的數據採樣錯誤。最終我發現只要在波形檔（Waveform.vwf）中將開關訊號的跳變時間向後挪移 5 ns，就能消除這種仿真偏斜，順利通過時序模擬。這次實作讓我深刻學習到硬體電路設計中時序收斂與模擬極限的實務經驗，對於未來做更複雜的 SoC 系統大有助益。
+
+\vspace{2em}
+\noindent
+\textbf{工作分配表}
+\vspace{0.5em}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{llcl}
+        \toprule
+        \textbf{學號} & \textbf{姓名} & \textbf{比重} & \textbf{工作項目} \\ \midrule
+        113590051 & 楊承諭 & 50\% & 小組專案製作與硬體電路設計 \\
+        113590017 & 黃楷程 & 50\% & 小組專案驗證與技術文件撰寫 \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+\end{document}
